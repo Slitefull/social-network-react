@@ -1,0 +1,11 @@
+.menu__item--link {
+  transition: all .3s cubic-bezier(.47, 0, .745, .715);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.menu__item--link:hover {
+  transition: all .3s cubic-bezier(.47, 0, .745, .715);
+  color: #bb7272;
+}

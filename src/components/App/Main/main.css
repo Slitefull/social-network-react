@@ -1,0 +1,6 @@
+main {
+  padding: 20px 0;
+  color: #ffffff;
+  min-height: calc(80vh - 70px);
+  grid-area: main;
+}
