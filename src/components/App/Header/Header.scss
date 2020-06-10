@@ -1,15 +1,14 @@
-.Header {
+@import './src/variables';
+
+.header {
   padding: 20px 0;
   color: #ffffff;
-  width: 70%;
-  margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  grid-area: header;
-}
 
-.header__logo--image {
-  max-width: 100px;
+  &__logo--image {
+    max-width: 100px;
+  }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import './header.css';
+import './Header.scss';
 import MenuHeader from "./Menu/Menu";
 
 const Header = () => {
     return (
-        <header className="Header">
+        <header className="header">
             <div className="header__logo">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"

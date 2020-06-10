@@ -1,11 +1,11 @@
 import React from 'react';
-import './menu.css';
-import MenuItemsHeader from "./Menu-items/Menu-items";
+import './Menu.scss';
+import MenuItems from "./Menu-items/Menu-items";
 
 const MenuHeader = () => {
     return (
-        <nav className="Menu">
-            <MenuItemsHeader/>
+        <nav className="menu">
+            <MenuItems/>
         </nav>
     );
 }

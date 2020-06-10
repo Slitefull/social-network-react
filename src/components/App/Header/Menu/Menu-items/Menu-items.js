@@ -1,5 +1,4 @@
 import React from 'react';
-import './menu-items.css';
 
 const AddItem = ({link, name}) => {
     return (
@@ -9,7 +8,7 @@ const AddItem = ({link, name}) => {
     );
 }
 
-const MenuItemsHeader = () => {
+const MenuItems = () => {
     return (
         <>
             <AddItem link="#" name="Main"/>
@@ -22,4 +21,4 @@ const MenuItemsHeader = () => {
     );
 }
 
-export default MenuItemsHeader;
+export default MenuItems;

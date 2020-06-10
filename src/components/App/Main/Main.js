@@ -1,12 +1,9 @@
 import React from 'react';
-import './main.css';
+import './Main.scss';
 
 const Main = () => {
     return (
-        <main className="Main">
-            <div className="container">
-            </div>
-        </main>
+        <main className="main"></main>
     );
 }
 
