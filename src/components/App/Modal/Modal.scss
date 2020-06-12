@@ -1,0 +1,69 @@
+@import "src/variables";
+
+.modal {
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(14,17,24,.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-wrapper {
+    width: 580px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1c242b;
+    border-radius: 10px;
+    color: $text-color;
+    padding: 40px 0 0;
+
+    &__title {
+      padding: 0 0 20px;
+      text-transform: uppercase;
+    }
+
+    &__input {
+      width: 75%;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #354149;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen';
+      color: $text-color;
+    }
+
+    &__button{
+      width: 200px;
+      height: 50px;
+      align-self: flex-end;
+      background-color: #00a056;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px 60px;
+      transition: 0.4s;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen';
+
+      &:hover{
+        background: #364850;
+        transition: 0.4s;
+      }
+    }
+  }
+}

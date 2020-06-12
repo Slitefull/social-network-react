@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.scss';
-import MenuHeader from "./Menu/Menu";
+import MenuHeader from "./Menu/Menu.jsx";
 
 const Header = () => {
     return (

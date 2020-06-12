@@ -3,8 +3,11 @@
 .menu {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 40%;
+
+  &__item {
+    margin: 0 0 0 20px;
+  }
 
   &__item--link {
     transition: all .3s cubic-bezier(.47, 0, .745, .715);
@@ -14,7 +17,11 @@
 
     &:hover {
       transition: all .3s cubic-bezier(.47, 0, .745, .715);
-      color: #bb7272;
+      color: #f262fb;
     }
+  }
+
+  &__item--link.active {
+    color: #f0a0f5;
   }
 }

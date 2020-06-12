@@ -1,6 +1,6 @@
 import React from 'react';
 import './Menu.scss';
-import MenuItems from "./Menu-items/Menu-items";
+import MenuItems from "./Menu-items/Menu-items.jsx";
 
 const MenuHeader = () => {
     return (
