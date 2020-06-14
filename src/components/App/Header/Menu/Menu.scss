@@ -7,21 +7,21 @@
 
   &__item {
     margin: 0 0 0 20px;
-  }
 
-  &__item--link {
-    transition: all .3s cubic-bezier(.47, 0, .745, .715);
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-
-    &:hover {
+    &--link {
       transition: all .3s cubic-bezier(.47, 0, .745, .715);
-      color: #f262fb;
-    }
-  }
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
 
-  &__item--link.active {
-    color: #f0a0f5;
+      &:hover {
+        transition: all .3s cubic-bezier(.47, 0, .745, .715);
+        color: #4acbcc;
+      }
+    }
+
+    &--link.active{
+      color: #ce5353;
+    }
   }
 }

@@ -5,6 +5,11 @@ import Film from "./Film/Film";
 const General = () => {
     return (
         <main className="general">
+            <div className="general__header title">
+                General
+            </div>
+            <Film/>
+            <Film/>
             <Film/>
         </main>
     );

@@ -1,7 +1,21 @@
-$text-color: #ffffff;
 $main-bg: #0e1118;
+$text-color: #ffffff;
+$dialog-color: #000000;
+$dialog-bg: #ffffff;
 
-.container{
+@mixin fonts($size, $lh, $fw: 400) {
+  font-size: $size;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+.title {
+  @include fonts(30px, 35px, 700);
+  color: $text-color;
+  padding: 20px 0;
+}
+
+.container {
   width: 70%;
   margin: auto;
 }
