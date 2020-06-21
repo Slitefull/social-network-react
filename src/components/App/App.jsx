@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
-import Header from "./Header/Header.jsx";
-import General from "./General/General.jsx";
+import Header from "./Header/Header";
+import General from "./General/General";
 import Modal from "./Modal/Modal";
 import Dialogs from "./Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-import Footer from "./Footer/Footer.jsx";
+import Footer from "./Footer/Footer";
 
 const App = () => {
     return (

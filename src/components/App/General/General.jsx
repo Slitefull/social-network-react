@@ -1,16 +1,12 @@
 import React from 'react';
 import './General.scss';
-import Film from "./Film/Film";
+import Films from "./Films/Films";
 
 const General = () => {
     return (
         <main className="general">
-            <div className="general__header title">
-                General
-            </div>
-            <Film/>
-            <Film/>
-            <Film/>
+            <div className="general__header title">General</div>
+            <Films/>
         </main>
     );
 }

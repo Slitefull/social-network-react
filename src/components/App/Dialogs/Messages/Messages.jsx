@@ -9,12 +9,18 @@ const AddMessage = ({message}) => {
 }
 
 const Messages = () => {
+    let messages = [
+        {id: 1, message: 'hi!'},
+        {id: 2, message: 'hello!'},
+        {id: 3, message: 'php hueta!'},
+        {id: 4, message: 'da, tak i est!'},
+    ]
+
+    let messagesElements = messages.map(m => <AddMessage message={m.message}/>)
+
     return (
         <div className="messages">
-            <AddMessage message={"hi!"}/>
-            <AddMessage message={"hi!"}/>
-            <AddMessage message={"hi!"}/>
-            <AddMessage message={"hi!"}/>
+            {messagesElements}
         </div>
     );
 }
