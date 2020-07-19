@@ -1,26 +1,37 @@
 import React from "react";
 
-const AddMessage = ({message}) => {
+const AddMessage = props => {
+    const dialogsMessage = React.createRef();
+
+    const showMessage = () => {
+        const postMessage = dialogsMessage.current.value;
+        props.addMessage( postMessage );
+        dialogsMessage.current.value = '';
+    }
+
     return (
-        <div className="message">
-            Message: {message}
+        <div className="dialogs__button">
+            <input ref={ dialogsMessage } type="text"/>
+            <button onClick={ showMessage }>Add</button>
         </div>
     );
 }
 
-const Messages = () => {
-    let messages = [
-        {id: 1, message: 'hi!'},
-        {id: 2, message: 'hello!'},
-        {id: 3, message: 'php hueta!'},
-        {id: 4, message: 'da, tak i est!'},
-    ]
+const NewMessage = ({ message }) => {
+    return (
+        <div className="message">
+            Message: { message }
+        </div>
+    );
+}
 
-    let messagesElements = messages.map(m => <AddMessage message={m.message}/>)
+const Messages = props => {
+    const messagesElements = props.messages.map(m => <NewMessage {...m}/>)
 
     return (
         <div className="messages">
-            {messagesElements}
+            { messagesElements }
+            <AddMessage addMessage={ props.addMessage } />
         </div>
     );
 }

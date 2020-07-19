@@ -1,11 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './components/App/App';
+import { rerenderTree } from "./render";
+import state from "./redux/state";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+rerenderTree( state );

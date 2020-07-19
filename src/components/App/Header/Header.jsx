@@ -16,3 +16,4 @@ const Header = () => {
 }
 
 export default Header;
+//TODO Запитати в Сані як зробити правильно урлу на головну

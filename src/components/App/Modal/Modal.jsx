@@ -3,7 +3,7 @@ import './Modal.scss';
 
 const Modal = () => {
     return (
-        <div className="modal">
+        <div className="modal not-active" id="modal">
             <div className="modal-wrapper">
                 <h2 className="modal-wrapper__title">Add a new film</h2>
                 <input className="modal-wrapper__input" placeholder="Enter film title" type="text"/>

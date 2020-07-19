@@ -2,11 +2,16 @@ $main-bg: #0e1118;
 $text-color: #ffffff;
 $dialog-color: #000000;
 $dialog-bg: #ffffff;
+$menu-button: #40acad;
 
 @mixin fonts($size, $lh, $fw: 400) {
   font-size: $size;
   line-height: $lh;
   font-weight: $fw;
+}
+
+.not-active{
+  display: none;
 }
 
 .title {

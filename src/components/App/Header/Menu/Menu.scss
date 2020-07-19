@@ -3,6 +3,7 @@
 .menu {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 40%;
 
   &__item {
@@ -20,7 +21,26 @@
       }
     }
 
-    &--link.active{
+    &--button {
+      @include fonts(14px, 16px, 700);
+      font-family: 'Segoe UI';
+      width: 120px;
+      height: 40px;
+      text-transform: uppercase;
+      margin-left: 260px;
+      color: #fff;
+      background-color: $menu-button;
+      border: 2px solid $menu-button;
+      border-radius: 4px;
+      transition: all .3s cubic-bezier(.47, 0, .745, .715);
+      cursor: pointer;
+
+      &:hover {
+        background-color: #4acbcc;
+      }
+    }
+
+    &--link.active {
       color: #ce5353;
     }
   }
