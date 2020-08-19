@@ -3,13 +3,19 @@ import "./Dialogs.scss";
 import Users from "./Users/Users";
 import Messages from "./Messages/Messages";
 
-const Dialogs = props => {
+export const Dialogs = props => {
     return (
-        <main className="dialogs">
-            <Users users={ props.state.users }/>
-            <Messages messages={ props.state.messages } addMessage={ props.addMessage }/>
+        <main className = "dialogs">
+            <Users
+                users = { props.state.users }
+                newUserName = { props.state.newUserName }
+                dispatch = { props.dispatch }
+            />
+            <Messages
+                messages = { props.state.messages }
+                newMessageText = { props.state.newMessageText }
+                dispatch = { props.dispatch }
+            />
         </main>
     );
 }
-
-export default Dialogs;

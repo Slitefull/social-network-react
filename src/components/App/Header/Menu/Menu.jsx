@@ -1,27 +1,22 @@
-import React from 'react';
+import { ModalButton } from "../../Modal/Modal";
 import { NavLink } from "react-router-dom";
+import React from 'react';
 import './Menu.scss';
-
-const ModalButton = () => {
-    const showModal = () => { alert('А хуй тобі!') }
-
-    return ( <button onClick={ showModal } className="menu__item--button">Add Film</button> );
-}
 
 const AddItem = ({ link, name }) => {
     return (
-        <div className="menu__item">
-            <NavLink to={ link } className="menu__item--link">{ name }</NavLink>
+        <div className = "menu__item">
+            <NavLink to = { link } className="menu__item--link">{ name }</NavLink>
         </div>
     );
 }
 
-const MenuHeader = () => {
+const MenuHeader = props => {
     return (
         <nav className="menu">
-            <AddItem link="/general" name="General"/>
-            <AddItem link="/dialogs" name="Dialogs"/>
-            <ModalButton/>
+            <AddItem link = "/general" name = "General"/>
+            <AddItem link = "/dialogs" name = "Dialogs"/>
+            <ModalButton dispatch = { props.dispatch }/>
         </nav>
     );
 }
