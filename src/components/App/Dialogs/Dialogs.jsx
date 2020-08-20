@@ -1,21 +1,26 @@
 import React from "react";
-import "./Dialogs.scss";
-import Users from "./Users/Users";
-import Messages from "./Messages/Messages";
 
-export const Dialogs = props => {
+import { Users } from "./Users/Users";
+import { Messages } from "./Messages/Messages";
+
+import "./Dialogs.scss";
+
+
+export const Dialogs = ({ state, dispatch }) => {
+    const { users, messages, newUserName, newMessageText } = state;
+
     return (
         <main className = "dialogs">
             <Users
-                users = { props.state.users }
-                newUserName = { props.state.newUserName }
-                dispatch = { props.dispatch }
+                users = { users }
+                dispatch = { dispatch }
+                newUserName = { newUserName }
             />
             <Messages
-                messages = { props.state.messages }
-                newMessageText = { props.state.newMessageText }
-                dispatch = { props.dispatch }
+                messages = { messages }
+                dispatch = { dispatch }
+                newMessageText = { newMessageText }
             />
         </main>
-    );
+    )
 }

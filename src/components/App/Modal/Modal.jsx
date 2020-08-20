@@ -1,24 +1,50 @@
 import React from 'react';
-import './Modal.scss';
-import { isModalCreator } from "../../../redux/state";
 
-const showModal = props => {
+import { addFilmCreator, isModalCreator } from "../../../redux/state";
+
+import './Modal.scss';
+
+
+const filmTitle = React.createRef();
+const filmYear = React.createRef();
+const filmPicture = React.createRef();
+
+const hideModal = dispatch => {
     const action = isModalCreator();
-    props.dispatch(action);
+    dispatch(action);
 }
 
-export const ModalButton = props => (
-    <button onClick = { () => showModal(props) } className = "menu__item--button">Add Film</button>
-);
+const addFilm = dispatch => {
+    const action = addFilmCreator();
+    dispatch(action);
+}
 
-export const Modal = () => (
-        <div className = "modal" >
+export const Modal = ({ state, dispatch }) => {
+    const { filmTitleText, filmYearText, filmPictureText } = state;
+
+    return (
+        <div className = "modal">
             <div className = "modal-wrapper">
-                <h2 className = "modal-wrapper__title">Add a new film</h2>
-                <input className = "modal-wrapper__input" placeholder = "Enter film title" type = "text"/>
-                <input className = "modal-wrapper__input" placeholder = "Enter film year" type = "text"/>
-                <input className = "modal-wrapper__input" placeholder = "Enter film link picture" type = "text"/>
-                <button className = "modal-wrapper__button">Add</button>
+                <div className = "modal-wrapper__header">
+                    <div onClick = { () => hideModal(dispatch) } className = "modal-wrapper__header__close__button">×</div>
+                    <h2 className = "modal-wrapper__header__title">Add a new film</h2>
+                </div>
+                <div className = "modal-wrapper__item">
+                    <p className = "modal-wrapper__item__title">Enter film title</p>
+                    <input className = "modal-wrapper__item__input" ref={ filmTitle } value={ filmTitleText } type = "text"/>
+                </div>
+                <div className = "modal-wrapper__item">
+                    <p className = "modal-wrapper__item__title">Enter film title</p>
+                    <input className = "modal-wrapper__item__input" ref={ filmYear } value = { filmYearText } type = "text"/>
+                </div>
+                <div className = "modal-wrapper__item">
+                    <p className = "modal-wrapper__item__title">Enter film title</p>
+                    <input className = "modal-wrapper__item__input" ref = { filmPicture } value = { filmPictureText } type = "text"/>
+                </div>
+                <div className = "modal-wrapper__footer">
+                    <button onClick={ ()=> addFilm(dispatch) } className = "modal-wrapper__footer__button">Add</button>
+                </div>
             </div>
         </div>
     )
+}

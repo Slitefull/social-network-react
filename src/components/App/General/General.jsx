@@ -1,12 +1,13 @@
 import React from 'react';
-import './General.scss';
-import Films from "./Films/Films";
 
-export const General = props => {
-    return (
-        <main className="general">
-            <div className="general__header title">General</div>
-            <Films films = { props.state.films }/>
-        </main>
-    );
-}
+import { Films } from "./Films/Films";
+
+import './General.scss';
+
+
+export const General = ({ state }) => (
+    <main className = "general">
+        <div className = "general__header title">General</div>
+        <Films films = { state.films } />
+    </main>
+)

@@ -1,24 +1,20 @@
-import { ModalButton } from "../../Modal/Modal";
-import { NavLink } from "react-router-dom";
 import React from 'react';
+
+import { isModalCreator } from "../../../../redux/state";
+import { AddMenuItem } from "./AddMenuItem/AddMenuItem";
+
 import './Menu.scss';
 
-const AddItem = ({ link, name }) => {
-    return (
-        <div className = "menu__item">
-            <NavLink to = { link } className="menu__item--link">{ name }</NavLink>
-        </div>
-    );
+
+const showModal = dispatch => {
+    const action = isModalCreator();
+    dispatch(action);
 }
 
-const MenuHeader = props => {
-    return (
-        <nav className="menu">
-            <AddItem link = "/general" name = "General"/>
-            <AddItem link = "/dialogs" name = "Dialogs"/>
-            <ModalButton dispatch = { props.dispatch }/>
-        </nav>
-    );
-}
-
-export default MenuHeader;
+export const MenuHeader = ({ dispatch }) => (
+    <nav className = "menu">
+        <AddMenuItem link = "/general" title = "General" />
+        <AddMenuItem link = "/dialogs" title = "Dialogs" />
+        <button onClick = { () => showModal( dispatch ) } className = "menu__item--button">Add Film</button>
+    </nav>
+)

@@ -4,6 +4,9 @@ $dialog-color: #000000;
 $dialog-bg: #ffffff;
 $menu-button: #40acad;
 
+$close-button: #ffffff;
+$close-button-color: #000000;
+
 @mixin fonts($size, $lh, $fw: 400) {
   font-size: $size;
   line-height: $lh;
