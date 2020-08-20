@@ -1,12 +1,8 @@
 import React from 'react';
 
+import { addFilmCreator, isModalCreator, updateNewFilmLogoCreator, updateNewFilmTitleCreator, updateNewFilmYearCreator } from '../../redux/state';
+
 import './Modal.scss';
-import {
-    addFilmCreator, isModalCreator,
-    updateNewFilmLogoCreator,
-    updateNewFilmTitleCreator,
-    updateNewFilmYearCreator
-} from '../../redux/state';
 
 
 const filmTitle = React.createRef();
@@ -42,7 +38,8 @@ const addFilm = dispatch => {
 }
 
 export const Modal = ({ state, dispatch }) => {
-    const { filmTitleText, filmYearText, filmPictureText } = state;
+    const { generalPage } = state;
+    const { filmTitleText, filmYearText, filmPictureText} = generalPage ;
 
     return (
         <div className = "modal">

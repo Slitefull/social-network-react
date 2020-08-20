@@ -5,23 +5,16 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const UPDATE_NEW_USER_NAME = 'UPDATE_NEW_USER_NAME';
 
 export const dialogsReducer = (state, action) => {
-    if (action.type === ADD_POST) {
-        const newMessage = {
-            id: 6,
-            message:
-            state.newMessageText
-        };
-        state.messages.push(newMessage);
-        state.newMessageText = '';
-    } else if (action.type === ADD_USER) {
-        const newUser = {id: 6, name: this._state.dialogsPage.newUserName}
-        state.users.push(newUser);
-        state.newUserName = '';
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-        state.newMessageText = action.newText;
-    } else if (action.type === UPDATE_NEW_USER_NAME) {
-        this._state.dialogsPage.newUserName = action.newUser;
-    }
+    switch (action.type) {
+        case ADD_POST: {
+            return { ...state, messages: [...state.messages, { id: 6, message: state.newMessageText }], newMessageText: '',}
+        }
+        case ADD_USER: {
+            return { ...state, users: [...state.users, { id: 6, name: state.newUserName }], newUserName: '', }
+        }
+        case UPDATE_NEW_POST_TEXT: return { ...state, newMessageText: action.newText }
+        case UPDATE_NEW_USER_NAME: return { ...state, newUserName: action.newUser }
 
-    return state;
+        default: return state;
+    }
 }
