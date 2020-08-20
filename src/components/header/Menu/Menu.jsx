@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { isModalCreator } from "../../../../redux/state";
-import { AddMenuItem } from "./AddMenuItem/AddMenuItem";
+import { isModalCreator } from '../../../redux/state';
+import { AddMenuItem } from '../../index';
 
 import './Menu.scss';
 

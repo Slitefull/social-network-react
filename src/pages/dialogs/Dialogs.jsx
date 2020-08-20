@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Users } from "./Users/Users";
-import { Messages } from "./Messages/Messages";
+import { Users, Messages } from '../index';
 
 import "./Dialogs.scss";
 

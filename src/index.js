@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 
 import store from './redux/state';
-import { App } from './components';
+
+import { App } from './app/App';
 
 import './index.scss';
 

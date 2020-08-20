@@ -1,11 +1,7 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 
-import { Modal } from "./Modal/Modal";
-import { Header } from "./Header/Header";
-import { Footer } from "./Footer/Footer";
-import { General } from './General/General';
-import { Dialogs } from './Dialogs/Dialogs';
+import { Modal, Header, General, Dialogs, Footer } from './index';
 
 import './App.scss';
 
@@ -22,7 +18,7 @@ export const App = ({ dispatch, state }) => {
             { isModal && <Modal state = { modalWindow } dispatch = { dispatch } /> }
             <Footer />
         </div>
-    );
+    )
 }
 
 /*

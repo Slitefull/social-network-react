@@ -2,11 +2,14 @@ const ADD_POST = 'ADD_POST';
 const ADD_USER = 'ADD_USER';
 const ADD_FILM = 'ADD_FILM';
 
+const UPDATE_NEW_FILM_LOGO = 'UPDATE_NEW_FILM_LOGO';
+const UPDATE_NEW_FILM_TITLE = 'UPDATE_NEW_FILM_TITLE';
+const UPDATE_NEW_FILM_YEAR = 'UPDATE_NEW_FILM_YEAR';
+
 const IS_MODAL = 'IS_MODAL';
 
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const UPDATE_NEW_USER_NAME = 'UPDATE_NEW_USER_NAME';
-const UPDATE_NEW_FILM_DATA = 'UPDATE_NEW_FILM_DATA';
 
 export default {
     _state: {
@@ -55,7 +58,10 @@ export default {
                     title: "Кот в слезах",
                     year: 2003
                 },
-            ]
+            ],
+            newFilmLogo: '',
+            newFilmTitle: '',
+            newFilmYear: '',
         },
         modalWindow: {
             isModal: false,
@@ -80,7 +86,7 @@ export default {
             this._state.dialogsPage.users.push(newUser);
             this._state.dialogsPage.newUserName = '';
             this._callSubscriber(this._state);
-        } else if (action.type === ADD_FILM){
+        } else if (action.type === ADD_FILM) {
             const newFilm = {
                 id: 5,
                 logoUrl: this._state.modalWindow.filmPictureText,
@@ -101,8 +107,14 @@ export default {
         } else if (action.type === IS_MODAL) {
             this._state.modalWindow.isModal = !this._state.modalWindow.isModal;
             this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_FILM_DATA) {
-            this._state.dialogsPage.newMessageText = action.newFilm;
+        } else if (action.type === UPDATE_NEW_FILM_LOGO) {
+            this._state.generalPage.newFilmLogo = action.newFilmLogo;
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_FILM_TITLE) {
+            this._state.generalPage.newFilmTitle = action.newFilmTitle;
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_FILM_YEAR) {
+            this._state.generalPage.newFilmYear = action.newFilmYear;
             this._callSubscriber(this._state);
         }
     }
@@ -110,11 +122,13 @@ export default {
 
 export const isModalCreator = () => ({ type: IS_MODAL });
 
-
 export const addPostCreator = () => ({ type: ADD_POST });
 export const addUserCreator = () => ({ type: ADD_USER });
 export const addFilmCreator = () => ({ type: ADD_FILM });
 
-export const updateNewPostTextCreator = postMessage => ({ type: UPDATE_NEW_POST_TEXT,  newText: postMessage });
-export const updateNewUserNameCreator = userName => ({ type: UPDATE_NEW_USER_NAME,  newUser: userName });
-export const updateNewFilmDataCreator = filmData => ({ type: UPDATE_NEW_FILM_DATA,  newFilm: filmData });
+export const updateNewPostTextCreator = postMessage => ({ type: UPDATE_NEW_POST_TEXT, newText: postMessage });
+export const updateNewUserNameCreator = userName => ({ type: UPDATE_NEW_USER_NAME, newUser: userName });
+
+export const updateNewFilmLogoCreator = filmLogoValue => ({ type: UPDATE_NEW_FILM_LOGO, newFilmLogo: filmLogoValue });
+export const updateNewFilmTitleCreator = filmTitleValue => ({ type: UPDATE_NEW_FILM_TITLE, newFilmTitle: filmTitleValue });
+export const updateNewFilmYearCreator = filmYearValue => ({ type: UPDATE_NEW_FILM_YEAR, newFilmYear: filmYearValue });

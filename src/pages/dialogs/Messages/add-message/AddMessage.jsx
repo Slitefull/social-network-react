@@ -1,6 +1,7 @@
 import React from "react";
 
-import { addPostCreator, updateNewPostTextCreator } from "../../../../../redux/state";
+import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/state';
+
 
 export const AddMessage = ({ newMessageText, dispatch }) => {
     const dialogsMessage = React.createRef();

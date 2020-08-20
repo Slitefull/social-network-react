@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AddFilm } from "./AddFilm/AddFilm";
+import { AddFilm } from "../../index";
 
 import './Films.scss';
 

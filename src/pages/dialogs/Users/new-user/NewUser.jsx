@@ -1,6 +1,7 @@
 import React from "react";
 
-import { addUserCreator, updateNewUserNameCreator } from "../../../../../redux/state";
+import { addUserCreator, updateNewUserNameCreator } from '../../../../redux/state';
+
 
 export const NewUser = ({ newUserName, dispatch }) => {
     const dialogsUser = React.createRef();
@@ -19,7 +20,7 @@ export const NewUser = ({ newUserName, dispatch }) => {
     return (
         <div className = "new-user">
             <p className = "new-user__name">Add user</p>
-            <input className = "new-user__input" ref = { dialogsUser } onChange = { onUserChange } value = { newUserName } type = "text"/>
+            <input className = "new-user__input" ref = { dialogsUser } onChange = { onUserChange } value = { newUserName } type = "text" />
             <button onClick = { addUser } className = "new-user__button">Add</button>
         </div>
     );

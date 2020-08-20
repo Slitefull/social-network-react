@@ -1,7 +1,7 @@
 import React from "react";
 
-import { NewMessage } from "./NewMessage/NewMessage";
-import { AddMessage } from "./AddMessage/AddMessage";
+import { NewMessage,AddMessage } from '../../index';
+
 
 export const Messages = ({ messages, newMessageText, dispatch }) => {
     const messagesElements = messages.map(m => <NewMessage { ...m }/>)

@@ -1,16 +1,38 @@
 import React from 'react';
 
-import { addFilmCreator, isModalCreator } from "../../../redux/state";
-
 import './Modal.scss';
+import {
+    addFilmCreator, isModalCreator,
+    updateNewFilmLogoCreator,
+    updateNewFilmTitleCreator,
+    updateNewFilmYearCreator
+} from '../../redux/state';
 
 
 const filmTitle = React.createRef();
 const filmYear = React.createRef();
-const filmPicture = React.createRef();
+const filmLogo = React.createRef();
 
 const hideModal = dispatch => {
     const action = isModalCreator();
+    dispatch(action);
+}
+
+const onFilmLogoChange = dispatch => {
+    const filmLogoValue = filmLogo.current.value;
+    const action = updateNewFilmLogoCreator(filmLogoValue);
+    dispatch(action);
+}
+
+const onFilmTitleChange = dispatch => {
+    const filmTitleValue = filmTitle.current.value;
+    const action = updateNewFilmTitleCreator(filmTitleValue);
+    dispatch(action);
+}
+
+const onFilmYearChange = dispatch => {
+    const filmYearValue = filmYear.current.value;
+    const action = updateNewFilmYearCreator(filmYearValue);
     dispatch(action);
 }
 
@@ -31,15 +53,15 @@ export const Modal = ({ state, dispatch }) => {
                 </div>
                 <div className = "modal-wrapper__item">
                     <p className = "modal-wrapper__item__title">Enter film title</p>
-                    <input className = "modal-wrapper__item__input" ref={ filmTitle } value={ filmTitleText } type = "text"/>
+                    <input onChange = { onFilmTitleChange } className = "modal-wrapper__item__input" ref = { filmTitle } value={ filmTitleText } type = "text"/>
                 </div>
                 <div className = "modal-wrapper__item">
                     <p className = "modal-wrapper__item__title">Enter film title</p>
-                    <input className = "modal-wrapper__item__input" ref={ filmYear } value = { filmYearText } type = "text"/>
+                    <input onChange = { onFilmYearChange } className = "modal-wrapper__item__input" ref = { filmYear } value = { filmYearText } type = "text"/>
                 </div>
                 <div className = "modal-wrapper__item">
                     <p className = "modal-wrapper__item__title">Enter film title</p>
-                    <input className = "modal-wrapper__item__input" ref = { filmPicture } value = { filmPictureText } type = "text"/>
+                    <input onChange = { onFilmLogoChange } className = "modal-wrapper__item__input" ref = { filmLogo } value = { filmPictureText } type = "text"/>
                 </div>
                 <div className = "modal-wrapper__footer">
                     <button onClick={ ()=> addFilm(dispatch) } className = "modal-wrapper__footer__button">Add</button>

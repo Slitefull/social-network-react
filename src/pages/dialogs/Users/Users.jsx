@@ -1,7 +1,7 @@
 import React from "react";
 
-import { NewUser } from "./NewUser/NewUser";
-import { AddUser } from "./AddUser/AddUser";
+import { AddUser, NewUser } from '../../index';
+
 
 export const Users = ({ users, newUserName, dispatch }) => {
     const usersElements = users.map(u => <AddUser { ...u } />);

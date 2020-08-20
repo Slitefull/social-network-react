@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MenuHeader } from "./Menu/Menu.jsx";
+import { MenuHeader } from '../index';
 
 import './Header.scss';
 

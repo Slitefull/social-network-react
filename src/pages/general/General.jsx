@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Films } from "./Films/Films";
+import { Films } from '../index';
 
 import './General.scss';
 
