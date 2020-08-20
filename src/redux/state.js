@@ -1,3 +1,7 @@
+import { generalReducer } from './general-reducer';
+import { dialogsReducer } from './dialogs-reducer';
+import { modalWindowReducer } from './modal-window-reducer';
+
 const ADD_POST = 'ADD_POST';
 const ADD_USER = 'ADD_USER';
 const ADD_FILM = 'ADD_FILM';
@@ -57,7 +61,7 @@ export default {
                     logoUrl: 'https://www.meme-arsenal.com/memes/211bcdd033fcb439f9c11839945fdd97.jpg',
                     title: "Кот в слезах",
                     year: 2003
-                },
+                }
             ],
             newFilmLogo: '',
             newFilmTitle: '',
@@ -68,7 +72,7 @@ export default {
             filmTitleText: 'Печальный кот',
             filmYearText: '2004',
             filmPictureText: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSd9_Wz_mbMRa0b9SwARmOwmo6TYN5eDqVYgc_eFE6er6d4jfDLkxIhS23dv3cpCwTtE1dR2ibsGAIPBWZLXLt5oq9gyDEgJM4kCg&usqp=CAU&ec=45690274'
-        },
+        }
     },
     _callSubscriber: () => console.log('State changed'),
 
@@ -76,47 +80,11 @@ export default {
     subscribe(observer) { this._callSubscriber = observer },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            const newMessage = { id: 6, message: this._state.dialogsPage.newMessageText };
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_USER) {
-            const newUser = { id: 6, name: this._state.dialogsPage.newUserName }
-            this._state.dialogsPage.users.push(newUser);
-            this._state.dialogsPage.newUserName = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_FILM) {
-            const newFilm = {
-                id: 5,
-                logoUrl: this._state.modalWindow.filmPictureText,
-                title: this._state.modalWindow.filmTitleText,
-                year: this._state.modalWindow.filmYearText
-            }
-            this._state.generalPage.films.push(newFilm);
-            this._state.modalWindow.filmTitleText = '';
-            this._state.modalWindow.filmYearText = '';
-            this._state.modalWindow.filmPictureText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_USER_NAME) {
-            this._state.dialogsPage.newUserName = action.newUser;
-            this._callSubscriber(this._state);
-        } else if (action.type === IS_MODAL) {
-            this._state.modalWindow.isModal = !this._state.modalWindow.isModal;
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_FILM_LOGO) {
-            this._state.generalPage.newFilmLogo = action.newFilmLogo;
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_FILM_TITLE) {
-            this._state.generalPage.newFilmTitle = action.newFilmTitle;
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_FILM_YEAR) {
-            this._state.generalPage.newFilmYear = action.newFilmYear;
-            this._callSubscriber(this._state);
-        }
+        this._state.generalPage = generalReducer(this._state.generalPage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.modalWindow = modalWindowReducer(this._state.modalWindow, action);
+
+        this._callSubscriber(this._state);
     }
 }
 
