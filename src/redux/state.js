@@ -2,19 +2,6 @@ import { generalReducer } from './general-reducer';
 import { dialogsReducer } from './dialogs-reducer';
 import { modalWindowReducer } from './modal-window-reducer';
 
-const ADD_POST = 'ADD_POST';
-const ADD_USER = 'ADD_USER';
-const ADD_FILM = 'ADD_FILM';
-
-const UPDATE_NEW_FILM_LOGO = 'UPDATE_NEW_FILM_LOGO';
-const UPDATE_NEW_FILM_TITLE = 'UPDATE_NEW_FILM_TITLE';
-const UPDATE_NEW_FILM_YEAR = 'UPDATE_NEW_FILM_YEAR';
-
-const IS_MODAL = 'IS_MODAL';
-
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const UPDATE_NEW_USER_NAME = 'UPDATE_NEW_USER_NAME';
-
 export default {
     _state: {
         dialogsPage: {
@@ -63,9 +50,9 @@ export default {
                     year: 2003
                 }
             ],
-            newFilmLogo: '1',
-            newFilmTitle: '2',
-            newFilmYear: '3',
+            filmLogo: '1',
+            filmTitle: '2',
+            filmYear: '3',
 
             filmTitleText: 'Печальный кот',
             filmYearText: '2004',
@@ -88,16 +75,3 @@ export default {
         this._callSubscriber(this._state);
     }
 }
-
-export const isModalCreator = () => ({ type: IS_MODAL });
-
-export const addPostCreator = () => ({ type: ADD_POST });
-export const addUserCreator = () => ({ type: ADD_USER });
-export const addFilmCreator = () => ({ type: ADD_FILM });
-
-export const updateNewPostTextCreator = postMessage => ({ type: UPDATE_NEW_POST_TEXT, newText: postMessage });
-export const updateNewUserNameCreator = userName => ({ type: UPDATE_NEW_USER_NAME, newUser: userName });
-
-export const updateNewFilmLogoCreator = filmLogoValue => ({ type: UPDATE_NEW_FILM_LOGO, newFilmLogo: filmLogoValue }); //payload
-export const updateNewFilmTitleCreator = filmTitleValue => ({ type: UPDATE_NEW_FILM_TITLE, newFilmTitle: filmTitleValue }); //create norm logic for object film !
-export const updateNewFilmYearCreator = filmYearValue => ({ type: UPDATE_NEW_FILM_YEAR, newFilmYear: filmYearValue });

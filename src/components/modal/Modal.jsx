@@ -1,45 +1,46 @@
 import React from 'react';
 
-import { addFilmCreator, isModalCreator, updateNewFilmLogoCreator, updateNewFilmTitleCreator, updateNewFilmYearCreator } from '../../redux/state';
+import { isModalCreator } from '../../redux/modal-window-reducer';
+import { addFilmCreator, updateNewFilmLogoCreator, updateNewFilmTitleCreator, updateNewFilmYearCreator } from '../../redux/general-reducer';
 
 import './Modal.scss';
 
 
-const filmTitle = React.createRef();
-const filmYear = React.createRef();
-const filmLogo = React.createRef();
-
-const hideModal = dispatch => {
-    const action = isModalCreator();
-    dispatch(action);
-}
-
-const onFilmLogoChange = dispatch => {
-    const filmLogoValue = filmLogo.current.value;
-    const action = updateNewFilmLogoCreator(filmLogoValue);
-    dispatch(action);
-}
-
-const onFilmTitleChange = dispatch => {
-    const filmTitleValue = filmTitle.current.value;
-    const action = updateNewFilmTitleCreator(filmTitleValue);
-    dispatch(action);
-}
-
-const onFilmYearChange = dispatch => {
-    const filmYearValue = filmYear.current.value;
-    const action = updateNewFilmYearCreator(filmYearValue);
-    dispatch(action);
-}
-
-const addFilm = dispatch => {
-    const action = addFilmCreator();
-    dispatch(action);
-}
-
 export const Modal = ({ state, dispatch }) => {
     const { generalPage } = state;
-    const { filmTitleText, filmYearText, filmPictureText} = generalPage ;
+    const { filmTitleText, filmYearText, filmPictureText } = generalPage ;
+
+    const filmTitle = React.createRef();
+    const filmYear = React.createRef();
+    const filmLogo = React.createRef();
+
+    const hideModal = () => {
+        const action = isModalCreator();
+        dispatch(action);
+    }
+
+    const addFilm = () => {
+        const action = addFilmCreator();
+        dispatch(action);
+    }
+
+    const onFilmLogoChange = () => {
+        const filmLogoValue = filmLogo.current.value;
+        const action = updateNewFilmLogoCreator(filmLogoValue);
+        dispatch(action);
+    }
+
+    const onFilmTitleChange = () => {
+        const filmTitleValue = filmTitle.current.value;
+        const action = updateNewFilmTitleCreator(filmTitleValue);
+        dispatch(action);
+    }
+
+    const onFilmYearChange = () => {
+        const filmYearValue = filmYear.current.value;
+        const action = updateNewFilmYearCreator(filmYearValue);
+        dispatch(action);
+    }
 
     return (
         <div className = "modal">
@@ -50,7 +51,7 @@ export const Modal = ({ state, dispatch }) => {
                 </div>
                 <div className = "modal-wrapper__item">
                     <p className = "modal-wrapper__item__title">Enter film title</p>
-                    <input onChange = { onFilmTitleChange } className = "modal-wrapper__item__input" ref = { filmTitle } value={ filmTitleText } type = "text"/>
+                    <input onChange = { onFilmTitleChange } className = "modal-wrapper__item__input" ref = { filmTitle } value = { filmTitleText } type = "text"/>
                 </div>
                 <div className = "modal-wrapper__item">
                     <p className = "modal-wrapper__item__title">Enter film title</p>
@@ -61,7 +62,7 @@ export const Modal = ({ state, dispatch }) => {
                     <input onChange = { onFilmLogoChange } className = "modal-wrapper__item__input" ref = { filmLogo } value = { filmPictureText } type = "text"/>
                 </div>
                 <div className = "modal-wrapper__footer">
-                    <button onClick={ ()=> addFilm(dispatch) } className = "modal-wrapper__footer__button">Add</button>
+                    <button onClick = { ()=> addFilm(dispatch) } className = "modal-wrapper__footer__button">Add</button>
                 </div>
             </div>
         </div>

@@ -16,10 +16,16 @@ export const generalReducer = (state, action) => {
             }
         }
 
-        case UPDATE_NEW_FILM_LOGO: return { ...state, newFilmLogo: action.newFilmLogo }
-        case UPDATE_NEW_FILM_TITLE: return { ...state, newFilmTitle: action.newFilmTitle }
-        case UPDATE_NEW_FILM_YEAR: return { ...state, newFilmYear: action.newFilmYear }
+        case UPDATE_NEW_FILM_LOGO: return { ...state, filmPictureText: action.newFilmLogo }
+        case UPDATE_NEW_FILM_TITLE: return { ...state, filmTitleText: action.newFilmTitle }
+        case UPDATE_NEW_FILM_YEAR: return { ...state, filmYearText: action.newFilmYear }
 
         default: return state;
     }
 }
+
+export const updateNewFilmLogoCreator = filmLogoValue => ({ type: UPDATE_NEW_FILM_LOGO, newFilmLogo: filmLogoValue }); //payload
+export const updateNewFilmTitleCreator = filmTitleValue => ({ type: UPDATE_NEW_FILM_TITLE, newFilmTitle: filmTitleValue }); //create norm logic for object film !
+export const updateNewFilmYearCreator = filmYearValue => ({ type: UPDATE_NEW_FILM_YEAR, newFilmYear: filmYearValue });
+
+export const addFilmCreator = () => ({ type: ADD_FILM });

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { addUserCreator, updateNewUserNameCreator } from '../../../../redux/state';
+import { addUserCreator, updateNewUserNameCreator } from '../../../../redux/dialogs-reducer';
 
 
 export const NewUser = ({ newUserName, dispatch }) => {

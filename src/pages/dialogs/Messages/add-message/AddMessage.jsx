@@ -1,6 +1,5 @@
 import React from "react";
-
-import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/state';
+import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/dialogs-reducer';
 
 
 export const AddMessage = ({ newMessageText, dispatch }) => {
