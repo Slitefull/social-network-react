@@ -1,5 +1,4 @@
 export { Films } from '../pages/general/films/Films';
-export { AddFilm } from './general/films/add-film/AddFilm';
 export { Users } from './dialogs/users/Users';
 export { Messages } from './dialogs/messages/Messages';
 export { AddUser } from './dialogs/users/add-user/AddUser';

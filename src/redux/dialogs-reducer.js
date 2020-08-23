@@ -4,7 +4,29 @@ const ADD_USER = 'ADD_USER';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const UPDATE_NEW_USER_NAME = 'UPDATE_NEW_USER_NAME';
 
-export const dialogsReducer = (state, action) => {
+const initialState = {
+    dialogsPage: {
+        users: [
+            { id: 1, name: 'Max' },
+            { id: 2, name: 'Sanya' },
+            { id: 3, name: 'Ivan' },
+            { id: 4, name: 'Dimon' },
+            { id: 5, name: 'Oleg' },
+        ],
+        newUserName: 'Max',
+
+        messages: [
+            { id: 1, message: 'Hi!' },
+            { id: 2, message: 'Hello!' },
+            { id: 3, message: 'Darova' },
+            { id: 4, message: 'React' },
+            { id: 5, message: 'Redux' },
+        ],
+        newMessageText: 'New Text'
+    },
+}
+
+export const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: { return { ...state, messages: [...state.messages, { id: 6, message: state.newMessageText }], newMessageText: '',} }
         case ADD_USER: { return { ...state, users: [...state.users, { id: 6, name: state.newUserName }], newUserName: '', } }
