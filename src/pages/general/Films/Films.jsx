@@ -15,4 +15,4 @@ const AddFilm = ({ logoUrl, title, year }) => (
     </section>
 )
 
-export const Films = films => films.map(f => <AddFilm {...f} />)
+export const Films = ({ films }) => films.map(f => <AddFilm { ...f } />)

@@ -5,7 +5,6 @@ const UPDATE_NEW_FILM_YEAR = 'UPDATE_NEW_FILM_YEAR';
 const ADD_FILM = 'ADD_FILM';
 
 const initialState = {
-    generalPage: {
         films: [
             {
                 id: 1,
@@ -40,7 +39,6 @@ const initialState = {
         filmYearText: '2004',
         filmPictureText: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSd9_Wz_mbMRa0b9SwARmOwmo6TYN5eDqVYgc_eFE6er6d4jfDLkxIhS23dv3cpCwTtE1dR2ibsGAIPBWZLXLt5oq9gyDEgJM4kCg&usqp=CAU&ec=45690274'
     }
-}
 
 export const generalReducer = (state = initialState, action) => {
     switch (action.type) {
