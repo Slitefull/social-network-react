@@ -1,19 +1,12 @@
 import React from "react";
-import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/dialogs-reducer';
 
 
-export const AddMessage = ({ newMessageText, dispatch }) => {
-    const dialogsMessage = React.createRef();
-
-    const addPost = () => {
-        const action = addPostCreator();
-        dispatch(action);
-    }
+export const AddMessage = ({ addPost, updateNewPostTextCreator, newMessageText }) => {
+    const dialogsMessage = React.createRef()
 
     const onPostChange = () => {
         const postMessage = dialogsMessage.current.value;
-        const action = updateNewPostTextCreator(postMessage);
-        dispatch(action);
+        updateNewPostTextCreator(postMessage)
     }
 
     return (

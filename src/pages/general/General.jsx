@@ -5,7 +5,7 @@ import { Films } from '../index';
 import './General.scss';
 
 
-export const General =  ({ state: { films } })   => {
+export const General = ({ state: { films } }) => {
     return (
         <main className = "general">
             <div className = "general__header title">General</div>

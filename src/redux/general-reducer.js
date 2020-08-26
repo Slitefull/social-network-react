@@ -29,6 +29,12 @@ const initialState = {
                 logoUrl: 'https://www.meme-arsenal.com/memes/211bcdd033fcb439f9c11839945fdd97.jpg',
                 title: "Кот в слезах",
                 year: 2003
+            },
+            {
+              id: 5,
+              logoUrl: 'https://www.meme-arsenal.com/memes/c4e4db46d74e857c40874a3804de5f11.jpg',
+              title: 'Думающий кот',
+              year: 2004
             }
         ],
         filmLogo: '1',

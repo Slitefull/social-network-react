@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NewMessage,AddMessage } from '../../index';
+import { NewMessage, AddMessageContainer } from '../../index';
 
 
 export const Messages = ({ messages, newMessageText, dispatch }) => {
@@ -8,7 +8,7 @@ export const Messages = ({ messages, newMessageText, dispatch }) => {
 
     return (
         <div className = "messages">
-            <AddMessage newMessageText = { newMessageText } dispatch = { dispatch } />
+            <AddMessageContainer newMessageText = { newMessageText } dispatch = { dispatch } />
             { messagesElements }
         </div>
     )
