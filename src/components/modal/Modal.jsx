@@ -2,30 +2,29 @@ import React from 'react';
 
 import './Modal.scss';
 
-
 export const Modal = ({ actions, state }) => {
     const { filmTitleText, filmYearText, filmPictureText } = state;
-    const { hideModal, addFilm, updateNewFilmLogoCreator, updateNewFilmTitleCreator, updateNewFilmYearCreator } = actions;
+    const { hideModal, addFilm, onFilmLogoChange, onFilmTitleChange, onFilmYearChange } = actions;
 
     const filmTitle = React.createRef();
     const filmYear = React.createRef();
     const filmLogo = React.createRef();
 
-    const onFilmLogoChangeHandler = () => {
-        const filmLogoValue = filmLogo.current.value;
-        updateNewFilmLogoCreator(filmLogoValue)
-    }
-
     const onFilmTitleChangeHandler = () => {
         const filmTitleValue = filmTitle.current.value;
-        updateNewFilmTitleCreator(filmTitleValue)
+        onFilmTitleChange(filmTitleValue)
     }
 
     const onFilmYearChangeHandler = () => {
         const filmYearValue = filmYear.current.value;
-        updateNewFilmYearCreator(filmYearValue)
+        onFilmYearChange(filmYearValue)
     }
 
+    const onFilmLogoChangeHandler = () => {
+        const filmLogoValue = filmLogo.current.value;
+        onFilmLogoChange(filmLogoValue)
+    }
+    console.log(actions)
     return (
         <div className = "modal">
             <div className = "modal-wrapper">

@@ -4,7 +4,13 @@ import { addUserCreator, updateNewUserNameCreator } from '../../../../redux/inde
 import { NewUser } from "../../../index";
 
 
-export const NewUserContainer = ({ dispatch, newUserName }) => {
+export const NewUserContainer = ({ store }) => {
+    const state = store.getState();
+
+    const { dialogsPage } = state;
+    const { newUserName } = dialogsPage;
+    const { dispatch } = store;
+
     const addUser = () => { dispatch(addUserCreator()) }
 
     const onUserChange = userName => { dispatch(updateNewUserNameCreator(userName)) }

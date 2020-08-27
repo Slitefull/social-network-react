@@ -6,16 +6,15 @@ import { ModalContainer, Header, General, Dialogs, Footer } from './index';
 import './App.scss';
 
 
-export const App = ({ dispatch, state }) => {
-    const { generalPage, dialogsPage, modalWindow } = state;
-    const { isModal } = modalWindow;
+export const App = ({ store }) => {
+    const state = store.getState();
 
     return (
         <div className = "App">
-            <Header dispatch = { dispatch } />
-            <Route path = "/general" render = { () => <General state = { generalPage }/> } />
-            <Route path = "/dialogs" render = { () => <Dialogs state = { dialogsPage } dispatch = { dispatch }/> } />
-            { isModal && <ModalContainer state = { { modalWindow, generalPage } } dispatch = { dispatch } /> }
+            <Header dispatch = { store.dispatch } />
+            <Route path = "/general" render = { () => <General store = { store } /> } />
+            <Route path = "/dialogs" render = { () => <Dialogs store = { store } /> } />
+            { state.modalWindow.isModal && <ModalContainer store = { store } /> }
             <Footer />
         </div>
     )

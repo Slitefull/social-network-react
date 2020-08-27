@@ -4,7 +4,10 @@ import { isModalCreator, addFilmCreator, updateNewFilmLogoCreator, updateNewFilm
 
 import { Modal } from "../index";
 
-export const ModalContainer = ({ dispatch, state }) => {
+export const ModalContainer = ({ store }) => {
+    const state = store.getState();
+
+    const { dispatch } = store;
     const { generalPage } = state;
     const { filmTitleText, filmYearText, filmPictureText } = generalPage;
 
