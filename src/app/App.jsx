@@ -9,12 +9,16 @@ import './App.scss';
 export const App = ({ store }) => {
     const state = store.getState();
 
+    const { dispatch } = store;
+    const { modalWindow } = state;
+    const { isModal } = modalWindow;
+
     return (
         <div className = "App">
-            <Header dispatch = { store.dispatch } />
+            <Header dispatch = { dispatch } />
             <Route path = "/general" render = { () => <General store = { store } /> } />
             <Route path = "/dialogs" render = { () => <Dialogs store = { store } /> } />
-            { state.modalWindow.isModal && <ModalContainer store = { store } /> }
+            { isModal && <ModalContainer store = { store } /> }
             <Footer />
         </div>
     )
