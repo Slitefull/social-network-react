@@ -1,19 +1,15 @@
-import React from "react";
-
 import { addUserCreator, updateNewUserNameCreator } from '../../../../redux/index';
 import { NewUser } from "../../../index";
+import { connect } from "react-redux";
 
 
-export const NewUserContainer = ({ store }) => {
-    const state = store.getState();
+const mapStateToProps = state => { return { newUserName: state.newUserName } }
 
-    const { dialogsPage } = state;
-    const { newUserName } = dialogsPage;
-    const { dispatch } = store;
-
-    const addUser = () => { dispatch(addUserCreator()) }
-
-    const onUserChange = userName => { dispatch(updateNewUserNameCreator(userName)) }
-
-    return <NewUser addUser = { addUser } updateNewUserNameCreator = { onUserChange } newUserName = { newUserName } />
+const mapDispatchToProps = dispatch => {
+    return {
+        addUser: () => { dispatch(addUserCreator()) },
+        onUserChange: userName => { dispatch(updateNewUserNameCreator(userName)) }
+    }
 }
+
+export const NewUserContainer = connect(mapStateToProps, mapDispatchToProps)(NewUser)

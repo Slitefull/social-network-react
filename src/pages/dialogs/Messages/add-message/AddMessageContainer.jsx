@@ -1,19 +1,19 @@
-import React from "react";
-
 import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/index';
 import { AddMessage } from '../../../index';
+import {connect} from "react-redux";
 
 
-export const AddMessageContainer = ({ store }) => {
-    const state = store.getState();
-
-    const { dispatch } = store;
-    const { dialogsPage } = state;
-    const { newMessageText } = dialogsPage;
-
-    const addPost = () => { dispatch(addPostCreator()) }
-
-    const onPostChange = postMessage => { dispatch(updateNewPostTextCreator(postMessage)) }
-
-    return <AddMessage updateNewPostTextCreator = { onPostChange } addPost = { addPost } newMessageText = { newMessageText } />
+const mapStateToProps = state => {
+    return {
+        newMessageText: state.newMessageText
+    }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addPost: () => { dispatch(addPostCreator()) },
+        onPostChange: postMessage => { dispatch(updateNewPostTextCreator(postMessage)) }
+    }
+}
+
+export const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AddMessage)
