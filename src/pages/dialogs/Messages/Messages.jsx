@@ -3,17 +3,12 @@ import React from "react";
 import { NewMessage, AddMessageContainer } from '../../index';
 
 
-export const Messages = ({ store }) => {
-    const state = store.getState();
-
-    const { dialogsPage } = state;
-    const { messages } = dialogsPage;
-
+export const Messages = ({ messages }) => {
     const messagesElements = messages.map(m => <NewMessage { ...m }/>)
 
     return (
         <div className = "messages">
-            <AddMessageContainer store = { store } />
+            <AddMessageContainer />
             { messagesElements }
         </div>
     )

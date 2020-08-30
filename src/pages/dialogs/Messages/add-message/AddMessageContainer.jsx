@@ -1,6 +1,6 @@
 import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/index';
 import { AddMessage } from '../../../index';
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 
 const mapStateToProps = state => {

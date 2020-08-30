@@ -1,24 +1,19 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 
-import { ModalContainer, Header, General, Dialogs, Footer } from './index';
+import { ModalContainer, Header, Dialogs, Footer } from './index';
+import { GeneralContainer } from "../pages/general/GeneralContainer";
 
 import './App.scss';
 
 
-export const App = ({ store }) => {
-    const state = store.getState();
-
-    const { dispatch } = store;
-    const { modalWindow } = state;
-    const { isModal } = modalWindow;
-
+export const App = ({ isModal }) => {
     return (
         <div className = "App">
-            <Header dispatch = { dispatch } />
-            <Route path = "/general" render = { () => <General store = { store } /> } />
-            <Route path = "/dialogs" render = { () => <Dialogs store = { store } /> } />
-            { isModal && <ModalContainer store = { store } /> }
+            <Header />
+            <Route path = "/general" render = { () => <GeneralContainer /> } />
+            <Route path = "/dialogs" render = { () => <Dialogs /> } />
+            { isModal && <ModalContainer /> }
             <Footer />
         </div>
     )

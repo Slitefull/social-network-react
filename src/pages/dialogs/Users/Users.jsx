@@ -3,17 +3,12 @@ import React from "react";
 import { AddUser, NewUserContainer } from '../../index';
 
 
-export const Users = ({ store }) => {
-    const state = store.getState();
-
-    const { dialogsPage } = state;
-    const { users } = dialogsPage;
-
+export const Users = ({ users }) => {
     const usersElements = users.map(u => <AddUser { ...u } />)
 
     return (
         <div className = "users">
-            <NewUserContainer store = { store } />
+            <NewUserContainer />
             { usersElements }
         </div>
     )

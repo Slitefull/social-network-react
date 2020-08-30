@@ -6,12 +6,15 @@ import store from './redux/redux-store';
 import { App } from './app/App';
 
 import './index.scss';
+import {Provider} from "react-redux";
 
 
 const rerenderTree = ({ state })  => {
     ReactDOM.render(
         <BrowserRouter>
-            <App store = { store } state = { state } dispatch = { store.dispatch.bind(store) } />
+            <Provider store = { store }>
+                <App />
+            </Provider>
         </BrowserRouter>,
         document.getElementById('root')
     )

@@ -1,15 +1,16 @@
 import React from "react";
 
-import { Users, Messages } from '../index';
+import { UsersContainer } from "./users/UsersContainer";
+import { MessagesContainer } from "./messages/MessagesContainer";
 
 import "./Dialogs.scss";
 
 
-export const Dialogs = ({ store }) => {
+export const Dialogs = () => {
     return (
         <main className = "dialogs">
-            <Users store = { store } />
-            <Messages store = { store } />
+            <UsersContainer />
+            <MessagesContainer />
         </main>
     )
 }
