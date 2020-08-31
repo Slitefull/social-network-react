@@ -2,22 +2,18 @@ import { isModalCreator, addFilmCreator, updateNewFilmLogoCreator, updateNewFilm
 import { Modal } from "../index";
 import { connect } from "react-redux";
 
-const mapStateToProps = state => {
-    return {
-        filmTitleText: state.filmTitleText,
-        filmYearText: state.filmYearText,
-        filmPictureText: state.filmPictureText
-    }
-}
+const mapStateToProps = state => ({
+        filmTitleText: state.generalPage.filmTitleText,
+        filmYearText: state.generalPage.filmYearText,
+        filmPictureText: state.generalPage.filmPictureText
+})
 
-const mapDispatchToProps = dispatch => {
-    return {
-        hideModal: () => { dispatch(isModalCreator()) },
-        addFilm: () => { dispatch(addFilmCreator()) },
-        onFilmLogoChange: filmLogoValue => { dispatch(updateNewFilmLogoCreator(filmLogoValue)) },
-        onFilmTitleChange: filmTitleValue => { dispatch(updateNewFilmTitleCreator(filmTitleValue)) },
-        onFilmYearChange: filmYearValue => { dispatch(updateNewFilmYearCreator(filmYearValue)) }
-    }
+const mapDispatchToProps = {
+    hideModal: () => isModalCreator(),
+    addFilm: () => addFilmCreator(),
+    onFilmLogoChange: filmLogoValue => updateNewFilmLogoCreator(filmLogoValue),
+    onFilmTitleChange: filmTitleValue => updateNewFilmTitleCreator(filmTitleValue),
+    onFilmYearChange: filmYearValue => updateNewFilmYearCreator(filmYearValue)
 }
 
 export const ModalContainer = connect(mapStateToProps, mapDispatchToProps)(Modal)

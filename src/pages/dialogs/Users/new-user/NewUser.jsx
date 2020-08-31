@@ -1,12 +1,12 @@
 import React from "react";
 
 
-export const NewUser = ({ addUser, updateNewUserNameCreator, newUserName }) => {
+export const NewUser = ({ addUser, onChangeHandler, newUserName }) => {
     const dialogsUser = React.createRef();
 
     const onUserChange = () => {
         const userName = dialogsUser.current.value;
-        updateNewUserNameCreator(userName);
+        onChangeHandler(userName);
     }
 
     return (

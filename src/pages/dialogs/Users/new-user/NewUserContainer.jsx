@@ -3,13 +3,12 @@ import { NewUser } from "../../../index";
 import { connect } from "react-redux";
 
 
-const mapStateToProps = state => { return { newUserName: state.newUserName } }
+const mapStateToProps = state => ({ newUserName: state.dialogsPage.newUserName })
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addUser: () => { dispatch(addUserCreator()) },
-        onUserChange: userName => { dispatch(updateNewUserNameCreator(userName)) }
-    }
+const mapDispatchToProps = {
+    addUser: () => addUserCreator(),
+    onChangeHandler: userName => updateNewUserNameCreator(userName)
 }
 
 export const NewUserContainer = connect(mapStateToProps, mapDispatchToProps)(NewUser)
+

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Header.scss';
-import { MenuContainer } from "./menu/MenuContainer";
+import { MenuContainer } from "../index";
 
 
 export const Header = () => (

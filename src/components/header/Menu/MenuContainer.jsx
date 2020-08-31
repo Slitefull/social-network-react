@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import { Menu } from "./Menu";
+import { Menu } from "../../index";
 import { isModalCreator } from "../../../redux";
 
-const mapDispatchToProps = dispatch => { return { showModal: () => { dispatch(isModalCreator()) }} }
+const mapDispatchToProps = { showModal: () => isModalCreator() }
 
-export const MenuContainer = connect(null ,mapDispatchToProps)(Menu)
+export const MenuContainer = connect(null,mapDispatchToProps)(Menu)

@@ -1,12 +1,12 @@
 import React from "react";
 
 
-export const AddMessage = ({ addPost, updateNewPostTextCreator, newMessageText }) => {
+export const AddMessage = ({ addPost, onChangeHandler, newMessageText }) => {
     const dialogsMessage = React.createRef()
 
     const onPostChange = () => {
         const postMessage = dialogsMessage.current.value;
-        updateNewPostTextCreator(postMessage)
+        onChangeHandler(postMessage)
     }
 
     return (
