@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { General } from './index';
+
+import { Films } from '../index';
 
 const mapStateToProps = state => ({ films: state.generalPage.films })
 
-export const GeneralContainer = connect(mapStateToProps)(General)
+export const FilmsContainer = connect(mapStateToProps)(Films)

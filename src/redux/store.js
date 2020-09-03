@@ -1,5 +1,5 @@
 import { generalReducer } from './general-reducer';
-import { dialogsReducer } from './dialogs-reducer';
+import { profileReducer } from './profile-reducer';
 import { modalWindowReducer } from './modal-window-reducer';
 
 export default {
@@ -69,7 +69,7 @@ export default {
 
     dispatch(action) {
         this._state.generalPage = generalReducer(this._state.generalPage, action);
-        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.dialogsPage = profileReducer(this._state.dialogsPage, action);
         this._state.modalWindow = modalWindowReducer(this._state.modalWindow, action);
 
         this._callSubscriber(this._state);

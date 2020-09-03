@@ -24,7 +24,7 @@ const initialState = {
         newMessageText: 'Darova'
 }
 
-export const dialogsReducer = (state = initialState, action) => {
+export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: { return { ...state, messages: [...state.messages, { id: 6, message: state.newMessageText }], newMessageText: '', } }
         case ADD_USER: { return { ...state, users: [...state.users, { id: 6, name: state.newUserName }], newUserName: '', } }

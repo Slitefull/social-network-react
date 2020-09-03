@@ -1,5 +1,5 @@
 import { addUserCreator, updateNewUserNameCreator } from '../../../../redux/index';
-import { NewUser } from '../../index';
+import { NewProfileUser } from '../../index';
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({ newUserName: state.dialogsPage.newUserName })
@@ -9,5 +9,5 @@ const mapDispatchToProps = {
     onChangeHandler: userName => updateNewUserNameCreator(userName)
 }
 
-export const NewUserContainer = connect(mapStateToProps, mapDispatchToProps)(NewUser)
+export const NewProfileUserContainer = connect(mapStateToProps, mapDispatchToProps)(NewProfileUser)
 

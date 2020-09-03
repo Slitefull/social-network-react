@@ -2,11 +2,11 @@ import React from "react";
 
 import { ProfileUsersContainer, ProfileMessagesContainer } from './index';
 
-import './Dialogs.scss';
+import './Profile.scss';
 
 
 export const Profile = () => (
-  <main className = "dialogs">
+  <main className = "profile">
     <ProfileUsersContainer />
     <ProfileMessagesContainer />
   </main>

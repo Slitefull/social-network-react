@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Films } from './index';
+import { FilmsContainer } from './index';
 
 import './General.scss';
 
 
-export const General = ({ films }) => (
+export const General = () => (
   <main className = "general">
     <div className = "general__header title">General</div>
-    <Films films = { films }/>
+    <FilmsContainer />
   </main>
 )
