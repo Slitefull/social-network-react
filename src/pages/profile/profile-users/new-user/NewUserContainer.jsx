@@ -1,7 +1,6 @@
 import { addUserCreator, updateNewUserNameCreator } from '../../../../redux/index';
-import { NewUser } from "../../../index";
+import { NewUser } from '../../index';
 import { connect } from "react-redux";
-
 
 const mapStateToProps = state => ({ newUserName: state.dialogsPage.newUserName })
 

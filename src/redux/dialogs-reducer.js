@@ -21,7 +21,7 @@ const initialState = {
             { id: 4, message: 'React' },
             { id: 5, message: 'Redux' },
         ],
-        newMessageText: 'New Text'
+        newMessageText: 'Darova'
 }
 
 export const dialogsReducer = (state = initialState, action) => {

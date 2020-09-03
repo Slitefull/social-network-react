@@ -1,5 +1,5 @@
 export { Menu } from './header/menu/Menu';
 export { AddMenuItem } from './header/menu/add-menu-item/AddMenuItem';
-export { Modal } from "./modal/Modal";
+export { Modal } from './modal/Modal';
 
-export { MenuContainer } from "./header/menu/MenuContainer";
+export { MenuContainer } from './header/menu/MenuContainer';

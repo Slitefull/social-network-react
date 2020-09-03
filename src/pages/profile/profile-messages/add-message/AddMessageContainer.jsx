@@ -1,5 +1,5 @@
 import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/index';
-import { AddMessage } from '../../../index';
+import { AddMessage } from '../../index';
 import { connect } from "react-redux";
 
 
