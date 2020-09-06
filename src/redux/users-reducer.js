@@ -2,9 +2,7 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
-const initialState = {
-  users: [],
-}
+const initialState = { users: [] }
 
 export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
