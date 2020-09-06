@@ -2,11 +2,12 @@ import React from 'react';
 import userPhoto from '../../assets/images/kuchma.jpg';
 import * as axios from 'axios';
 import './Users.scss'
+import {Pagination} from './styled';
 
 
 export class Users extends React.Component {
   componentDidMount() {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${this.props.totalUsersCount}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${ this.props.pageSize }`)
       .then(response => {
         this.props.setUsers(response.data.items)
         this.props.setTotalUsersCount(response.data.totalCount)
@@ -15,7 +16,7 @@ export class Users extends React.Component {
 
   onPageChanged = pageNumber => {
     this.props.setCurrentPage(pageNumber);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${this.props.totalUsersCount}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${ this.props.pageSize}`)
       .then(response => {
         this.props.setUsers(response.data.items)
       })
@@ -31,7 +32,7 @@ export class Users extends React.Component {
 
     return <main className="users-page">
       {pages.map(p => {
-        return <span className="test" onClick={ (e) => this.onPageChanged(p) }> { p } </span>
+        return <Pagination isRed={false} className="test" onClick={ (e) => this.onPageChanged(p) }> { p } </Pagination>
       })}
 
       {this.props.users.map(u =>

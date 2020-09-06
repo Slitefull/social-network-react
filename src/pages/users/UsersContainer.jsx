@@ -16,7 +16,7 @@ const mapDispatchToProps = {
   unfollow: userId => unFollowAC(userId),
   setUsers: users => setUsersAC(users),
   setCurrentPage: pageNumber => setCurrentPageAC(pageNumber),
-  setTotalUsersCount: totalCount => setTotalUsersCountAC(totalCount),
+  setTotalUsersCount: totalCount => setTotalUsersCountAC(totalCount)
 }
 
 export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users)

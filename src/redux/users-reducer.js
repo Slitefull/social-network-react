@@ -2,7 +2,7 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 
 const initialState = {
   users: [],
@@ -12,6 +12,7 @@ const initialState = {
 }
 
 export const usersReducer = (state = initialState, action) => {
+  console.log(action)
   switch (action.type) {
 
     case FOLLOW: return ({
