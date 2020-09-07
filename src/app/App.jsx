@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { ModalContainer, Header, Profile, Footer, General} from './index';
-import { UsersContainer } from '../pages/users/UsersContainer';
+import UsersContainer from '../pages/users/UsersContainer';
 import { pages } from '../consts';
 
 import './App.scss';
