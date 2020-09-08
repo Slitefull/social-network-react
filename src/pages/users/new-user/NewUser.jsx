@@ -1,7 +1,7 @@
 import React from 'react';
 import userPhoto from '../../../assets/images/kuchma.jpg';
 
-export const NewUser = ({ id, photos, name, status, isFollow, follow, unfollow }) => (
+export const NewUser = ({ id, photos, name, status, isFollow, follow, unFollow }) => (
   <main className = "users-page">
     <div className = "user">
       <div className = "user__header">
@@ -19,7 +19,7 @@ export const NewUser = ({ id, photos, name, status, isFollow, follow, unfollow }
         </div>
         { isFollow
           ? <button onClick = { () => follow(id) } className = "user__bottom__button">Unfollow</button>
-          : <button onClick = { () => unfollow(id) } className = "user__bottom__button">Follow</button>}
+          : <button onClick = { () => unFollow(id) } className = "user__bottom__button">Follow</button>}
       </div>
     </div>
   </main>

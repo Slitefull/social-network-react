@@ -5,23 +5,23 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const UPDATE_NEW_USER_NAME = 'UPDATE_NEW_USER_NAME';
 
 const initialState = {
-        users: [
-            { id: 1, name: 'Max' },
-            { id: 2, name: 'Sanya' },
-            { id: 3, name: 'Ivan' },
-            { id: 4, name: 'Dimon' },
-            { id: 5, name: 'Oleg' },
-        ],
-        newUserName: 'Max',
+  users: [
+    {id: 1, name: 'Max'},
+    {id: 2, name: 'Sanya'},
+    {id: 3, name: 'Ivan'},
+    {id: 4, name: 'Dimon'},
+    {id: 5, name: 'Oleg'},
+  ],
+  newUserName: 'Max',
 
-        messages: [
-            { id: 1, message: 'Hi!' },
-            { id: 2, message: 'Hello!' },
-            { id: 3, message: 'Darova' },
-            { id: 4, message: 'React' },
-            { id: 5, message: 'Redux' },
-        ],
-        newMessageText: 'Darova'
+  messages: [
+    {id: 1, message: 'Hi!'},
+    {id: 2, message: 'Hello!'},
+    {id: 3, message: 'Darova'},
+    {id: 4, message: 'React'},
+    {id: 5, message: 'Redux'},
+  ],
+  newMessageText: 'Darova'
 }
 
 export const profileReducer = (state = initialState, action) => {
@@ -37,8 +37,8 @@ export const profileReducer = (state = initialState, action) => {
 }
 
 
-export const addPostCreator = () => ({ type: ADD_POST });
-export const addUserCreator = () => ({ type: ADD_USER });
+export const addPost = () => ({ type: ADD_POST });
+export const addUser = () => ({ type: ADD_USER });
 
-export const updateNewPostTextCreator = postMessage => ({ type: UPDATE_NEW_POST_TEXT, newText: postMessage });
-export const updateNewUserNameCreator = userName => ({ type: UPDATE_NEW_USER_NAME, newUser: userName });
+export const onPostMessageChangeHandler = postMessage => ({ type: UPDATE_NEW_POST_TEXT, newText: postMessage });
+export const onUserNameChangeHandler = userName => ({ type: UPDATE_NEW_USER_NAME, newUser: userName });

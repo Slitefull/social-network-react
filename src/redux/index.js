@@ -1,3 +1,3 @@
-export { addFilmCreator, updateNewFilmLogoCreator, updateNewFilmTitleCreator, updateNewFilmYearCreator } from './general-reducer';
-export { addPostCreator, addUserCreator, updateNewPostTextCreator, updateNewUserNameCreator } from './profile-reducer';
-export { isModalCreator } from './modal-window-reducer';
+export { addFilm, updateNewFilmLogo, updateNewFilmTitle, updateNewFilmYear } from './general-reducer';
+export { addPost, addUser, onPostMessageChangeHandler, onUserNameChangeHandler } from './profile-reducer';
+export { modalToggle } from './modal-window-reducer';

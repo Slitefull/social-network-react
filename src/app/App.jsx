@@ -10,10 +10,10 @@ import './App.scss';
 export const App = ({ isModal }) => (
   <div className = "App">
     <Header />
-      <Route path = { pages.links.generalPage } component = { General } />
-      <Route path = { pages.links.profilePage } component = { Profile } />
-      <Route path = { pages.links.usersPage } component = { UsersContainer } />
-      { isModal && <ModalContainer /> }
+    <Route path = { pages.links.generalPage } component = { General } />
+    <Route path = { pages.links.profilePage } component = { Profile } />
+    <Route path = { pages.links.usersPage } component = { UsersContainer } />
+    { isModal && <ModalContainer /> }
     <Footer />
   </div>
 )

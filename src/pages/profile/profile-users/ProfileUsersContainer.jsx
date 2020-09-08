@@ -1,5 +1,5 @@
-import { ProfileUsers } from './ProfileUsers';
 import { connect } from 'react-redux';
+import { ProfileUsers } from './ProfileUsers';
 
 const mapStateToProps = state => ({ users: state.dialogsPage.users })
 

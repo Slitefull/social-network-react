@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as axios from 'axios';
-import { setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleIsFetchingAC } from '../../redux/users-reducer';
+import { setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching } from '../../redux/users-reducer';
 import { Users } from './Users';
 
 export class UsersContainer extends React.Component {
@@ -44,11 +44,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = {
-  setUsers: users => setUsersAC(users),
-  setCurrentPage: pageNumber => setCurrentPageAC(pageNumber),
-  setTotalUsersCount: totalCount => setTotalUsersCountAC(totalCount),
-  toggleIsFetching: isFetching => toggleIsFetchingAC(isFetching)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, { setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching })(UsersContainer)

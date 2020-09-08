@@ -66,8 +66,8 @@ export const generalReducer = (state = initialState, action) => {
     }
 }
 
-export const updateNewFilmLogoCreator = filmLogoValue => ({ type: UPDATE_NEW_FILM_LOGO, newFilmLogo: filmLogoValue }); //payload
-export const updateNewFilmTitleCreator = filmTitleValue => ({ type: UPDATE_NEW_FILM_TITLE, newFilmTitle: filmTitleValue }); //create norm logic for object film !
-export const updateNewFilmYearCreator = filmYearValue => ({ type: UPDATE_NEW_FILM_YEAR, newFilmYear: filmYearValue });
+export const updateNewFilmLogo = filmLogoValue => ({ type: UPDATE_NEW_FILM_LOGO, newFilmLogo: filmLogoValue }); //payload
+export const updateNewFilmTitle = filmTitleValue => ({ type: UPDATE_NEW_FILM_TITLE, newFilmTitle: filmTitleValue }); //create norm logic for object film !
+export const updateNewFilmYear = filmYearValue => ({ type: UPDATE_NEW_FILM_YEAR, newFilmYear: filmYearValue });
 
-export const addFilmCreator = () => ({ type: ADD_FILM });
+export const addFilm = () => ({ type: ADD_FILM });

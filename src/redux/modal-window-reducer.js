@@ -10,4 +10,4 @@ export const modalWindowReducer = (state = initialState, action) => {
     }
 }
 
-export const isModalCreator = () => ({ type: IS_MODAL });
+export const modalToggle = () => ({ type: IS_MODAL });
