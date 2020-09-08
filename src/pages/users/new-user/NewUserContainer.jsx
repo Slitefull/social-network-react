@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
-import {NewUser} from './NewUser';
-import {followAC, unFollowAC} from '../../../redux/users-reducer';
+import { connect } from 'react-redux';
+import { NewUser } from './NewUser';
+import { followAC, unFollowAC } from '../../../redux/users-reducer';
 
 
 const mapDispatchToProps = {
