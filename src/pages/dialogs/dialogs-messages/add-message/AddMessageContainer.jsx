@@ -1,6 +1,6 @@
-import { addPost, onPostMessageChangeHandler } from '../../../../redux/index';
-import { AddMessage } from '../../index';
 import { connect } from "react-redux";
+import { AddMessage } from '../../index';
+import { addPost, onPostMessageChangeHandler } from '../../../../redux/dialogs-reducer';
 
 
 const mapStateToProps = state => ({ newMessageText: state.dialogsPage.newMessageText })

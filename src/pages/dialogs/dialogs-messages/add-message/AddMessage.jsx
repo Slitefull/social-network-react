@@ -12,7 +12,8 @@ export const AddMessage = ({ addPost, onPostMessageChangeHandler, newMessageText
   return (
     <div className = "new-message">
       <p className = "new-message__message">Add message</p>
-      <input className = "new-message__input" onChange = { onPostChange } ref = { dialogsMessage } value = { newMessageText }
+      <input className = "new-message__input" onChange = { onPostChange } ref = { dialogsMessage }
+             value = { newMessageText }
              type = "text"/>
       <button className = "new-message__button" onClick = { addPost }>Add</button>
     </div>

@@ -1,13 +1,12 @@
 import React from "react";
-
-import { ProfileUsersContainer, ProfileMessagesContainer } from './index';
-
-import './Profile.scss';
+import { ProfileCard, ProfileCardImage, ProfilePage } from './styled';
+import avatar from '../../assets/images/avatar.jpg'
 
 
 export const Profile = () => (
-  <main className = "profile">
-    <ProfileUsersContainer />
-    <ProfileMessagesContainer />
-  </main>
+  <ProfilePage>
+    <ProfileCard>
+      <ProfileCardImage src = { avatar }></ProfileCardImage>
+    </ProfileCard>
+  </ProfilePage>
 )

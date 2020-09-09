@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
-
-import { Menu } from "../../index";
-import { modalToggle } from "../../../redux";
+import {modalToggle} from '../../../redux/modal-window-reducer';
+import {Menu} from './Menu';
 
 export const MenuContainer = connect(null,{ modalToggle })(Menu)

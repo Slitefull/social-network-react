@@ -1,14 +1,14 @@
 import { combineReducers, createStore } from 'redux';
 
 import { generalReducer } from './general-reducer';
-import { profileReducer } from './profile-reducer';
 import { modalWindowReducer } from './modal-window-reducer';
 import { usersReducer } from './users-reducer';
+import { dialogsReducer } from './dialogs-reducer';
 
 
 const reducers = combineReducers({
     generalPage: generalReducer,
-    dialogsPage: profileReducer,
+    dialogsPage: dialogsReducer,
     usersPage: usersReducer,
     modalWindow: modalWindowReducer,
 })

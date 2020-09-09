@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
-import { modalToggle, addFilm, updateNewFilmLogo, updateNewFilmTitle, updateNewFilmYear } from '../../redux/index';
 import { Modal } from "../index";
+import {modalToggle} from '../../redux/modal-window-reducer';
+import {addFilm, updateNewFilmLogo, updateNewFilmTitle, updateNewFilmYear} from '../../redux/general-reducer';
 
 
 const mapStateToProps = state => ({
