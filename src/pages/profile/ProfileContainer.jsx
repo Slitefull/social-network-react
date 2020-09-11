@@ -12,12 +12,12 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        return <Profile {...this.props} profile={this.props.profile}/>
+        return <Profile profile = { this.props.profile } />
     }
 }
 
 const mapStateToProps = state => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
 })
 
 export default connect(mapStateToProps, {setUserProfile})(ProfileContainer);
