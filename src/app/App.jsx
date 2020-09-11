@@ -3,11 +3,11 @@ import { Route } from 'react-router-dom';
 import { ModalContainer, Header, Footer, General} from './index';
 import { Dialogs } from '../pages/dialogs/Dialogs';
 import UsersContainer from '../pages/users/UsersContainer';
-import { ProfileContainer } from '../pages/profile/ProfileContainer';
 
 import { pages } from '../consts';
 
 import './App.scss';
+import ProfileContainer from '../pages/profile/ProfileContainer';
 
 
 export const App = ({ isModal }) => (
