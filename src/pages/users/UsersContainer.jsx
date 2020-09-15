@@ -6,7 +6,6 @@ import { Users } from './Users';
 
 export class UsersContainer extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.toggleIsFetching(true);
     axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${this.props.pageSize}`)
       .then(response => {
@@ -29,7 +28,7 @@ export class UsersContainer extends React.Component {
   render() {
     return <Users users = { this.props.users }
                   totalUsersCount = { this.props.totalUsersCount }
-                  onPageChanged={ this.onPageChanged }
+                  onPageChanged = { this.onPageChanged }
                   pageSize = { this.props.pageSize }
                   isFetching = { this.props.isFetching } />
   }

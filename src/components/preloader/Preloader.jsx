@@ -1,5 +1,9 @@
 import React from 'react';
 import PreloaderImg from '../../assets/images/preloader.svg';
-import { PreloaderStyled } from './styled';
+import {PreloaderStyled, PreloaderWrapper} from './styled';
 
-export const Preloader = () => ( <PreloaderStyled src = { PreloaderImg } /> )
+export const Preloader = () => (
+  <PreloaderWrapper>
+    <PreloaderStyled src={PreloaderImg}/>
+  </PreloaderWrapper>
+)

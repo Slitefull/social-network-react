@@ -1,6 +1,5 @@
 import React from 'react';
-import { MenuContainer } from "../index";
-
+import MenuContainer from './menu/MenuContainer'
 import './Header.scss';
 
 

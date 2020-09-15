@@ -3,12 +3,14 @@ export const pages = {
     generalPage: 'General',
     profilePage: 'Profile',
     dialogsPage: 'Dialogs',
-    usersPage: 'Users'
+    usersPage: 'Users',
+    authPage: 'Login',
   },
   links: {
     generalPage: '/general',
-    profilePage: '/profile',
+    profilePage: '/profile/:userId?',
     dialogsPage: '/dialogs',
-    usersPage: '/users'
+    usersPage: '/users',
+    authPage: '/login',
   }
 }
