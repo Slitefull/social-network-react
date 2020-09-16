@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from "react-redux";
 import * as axios from 'axios';
 
-import { modalToggle } from '../../../redux/modal-window-reducer';
-import { setAuthUserData } from '../../../redux/auth-reducer';
+import {modalToggle} from '../../../redux/modal-window-reducer';
+import {setAuthUserData} from '../../../redux/auth-reducer';
 
 import { Menu } from './Menu';
 
 
-export class MenuContainer extends React.Component {
+class MenuWrapper extends React.Component {
   componentDidMount() {
     axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true })
       .then(response => {
@@ -19,9 +19,9 @@ export class MenuContainer extends React.Component {
       })
   }
 
-  render() { return <Menu { ...this.props } /> }
+  render() { return <Menu { ...this.props } showModal = { this.props.modalToggle } /> }
 }
 
 const mapStateToProps = state => ({ isAuth: state.auth.isAuth, email: state.auth.email })
 
-export default connect(mapStateToProps, { modalToggle, setAuthUserData })(MenuContainer)
+export const MenuContainer = connect(mapStateToProps, { modalToggle, setAuthUserData })(MenuWrapper)
