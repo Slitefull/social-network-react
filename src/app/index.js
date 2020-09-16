@@ -14,6 +14,6 @@ export { Profile } from '../pages/profile/Profile';
 export { Footer } from '../components/footer/Footer';
 export { Dialogs } from '../pages/dialogs/Dialogs';
 
-export { UsersContainer } from '../pages/users';
 export { ProfileContainer } from '../pages/profile';
+export { UsersContainer } from '../pages/users';
 export { ModalContainer } from '../components/modal';

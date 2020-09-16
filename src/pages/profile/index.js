@@ -20,7 +20,9 @@ class ProfileWrapper extends React.Component {
   render() { return <Profile profile = { this.props.profile }/> }
 }
 
-const mapStateToProps = state => ({ profile: state.profilePage.profile })
+const mapStateToProps = state => ({
+  profile: state.profilePage.profile,
+})
 
 const WithUrlDataContainerComponent = withRouter(ProfileWrapper);
 
