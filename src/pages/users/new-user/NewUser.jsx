@@ -1,8 +1,9 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import * as axios from 'axios';
 
 import userPhoto from '../../../assets/images/kuchma.jpg';
+
+import {usersAPI} from '../../../api/api';
 
 
 export const NewUser = ({id, photos, name, status, isFollow, follow, unFollow}) => (
@@ -24,23 +25,18 @@ export const NewUser = ({id, photos, name, status, isFollow, follow, unFollow}) 
       </div>
       {
         isFollow
-          ? <button onClick={() => axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
-            withCredentials: true,
-          })
-            .then(response => {
-              if (response.data.resultCode === 0) {
+          ? <button onClick={() => usersAPI.unFollowUser(id)
+            .then(data => {
+              if (data.resultCode === 0) {
                 follow(id)
               }
             })} className="user__bottom__button">Unfollow</button>
-          : <button
-            onClick={() => axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, null, {
-              withCredentials: true,
-            })
-              .then(response => {
-                if (response.data.resultCode === 0) {
-                  unFollow(id)
-                }
-              })} className="user__bottom__button">Follow</button>
+          : <button onClick={() => usersAPI.followUser(id)
+            .then(data => {
+              if (data.resultCode === 0) {
+                unFollow(id)
+              }
+            })} className="user__bottom__button">Follow</button>
       }
     </div>
   </div>
