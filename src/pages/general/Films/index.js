@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
-import { Films } from '../index';
+import { Films } from './Films';
+
 
 const mapStateToProps = state => ({ films: state.generalPage.films })
 

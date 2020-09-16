@@ -1,6 +1,5 @@
 import React from "react";
-
-import { DialogsUsersContainer, DialogsMessagesContainer } from './index';
+import {DialogsUsersContainer, DialogsMessagesContainer} from './index';
 
 import './Profile.scss';
 

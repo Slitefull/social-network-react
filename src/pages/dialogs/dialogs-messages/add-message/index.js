@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { AddMessage } from '../../index';
+
+import { AddMessage } from './AddMessage';
 import { addPost, onPostMessageChangeHandler } from '../../../../redux/dialogs-reducer';
 
 

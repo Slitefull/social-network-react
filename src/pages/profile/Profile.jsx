@@ -1,4 +1,14 @@
 import React from "react";
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import avatar from '../../assets/images/avatar.jpg'
+import profileBackground from '../../assets/images/profile-background.jpg'
+
+import { Preloader } from '../../components/preloader/Preloader';
+
 import {
   ProfileCard, ProfileCardAvatar, ProfileCardBody,
   ProfileCardFullName,
@@ -7,20 +17,13 @@ import {
   ProfileCardStatus,
   ProfilePage, ProfilePageBackgroundContainer
 } from './styled';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import avatar from '../../assets/images/avatar.jpg'
-import profileBackground from '../../assets/images/profile-background.jpg'
-import {Preloader} from '../../components/preloader/Preloader';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fab} from '@fortawesome/free-brands-svg-icons';
 
 library.add(fab)
 
-export const Profile = ({profile}) => {
 
-  if (!profile) {
-    return <Preloader/>
-  }
+export const Profile = ({ profile }) => {
+
+  if (!profile) { return <Preloader/> }
 
   const {fullName, photos, aboutMe, lookingForAJob, lookingForAJobDescription, contacts} = profile;
   const {github, facebook, vk, twitter, instagram, youtube} = contacts;

@@ -16,4 +16,4 @@ export const profileReducer = (state = initialState, action) => {
   }
 }
 
-export const setUserProfile = profile => ({type: SET_USER_PROFILE, profile})
+export const setUserProfile = profile => ({ type: SET_USER_PROFILE, profile })

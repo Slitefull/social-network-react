@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import { NewUser } from './NewUser';
 import { follow, unFollow } from '../../../redux/users-reducer';
 

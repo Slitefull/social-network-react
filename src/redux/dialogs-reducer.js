@@ -6,20 +6,20 @@ const UPDATE_NEW_USER_NAME = 'UPDATE_NEW_USER_NAME';
 
 const initialState = {
   users: [
-    {id: 1, name: 'Max'},
-    {id: 2, name: 'Sanya'},
-    {id: 3, name: 'Ivan'},
-    {id: 4, name: 'Dimon'},
-    {id: 5, name: 'Oleg'},
+    { id: 1, name: 'Max' },
+    { id: 2, name: 'Sanya' },
+    { id: 3, name: 'Ivan' },
+    { id: 4, name: 'Dimon' },
+    { id: 5, name: 'Oleg' },
   ],
   newUserName: 'Max',
 
   messages: [
-    {id: 1, message: 'Hi!'},
-    {id: 2, message: 'Hello!'},
-    {id: 3, message: 'Darova'},
-    {id: 4, message: 'React'},
-    {id: 5, message: 'Redux'},
+    { id: 1, message: 'Hi!' },
+    { id: 2, message: 'Hello!' },
+    { id: 3, message: 'Darova' },
+    { id: 4, message: 'React' },
+    { id: 5, message: 'Redux' },
   ],
   newMessageText: 'Darova'
 }

@@ -19,23 +19,25 @@ export const usersReducer = (state = initialState, action) => {
     case FOLLOW: return ({
         ...state, users: state.users.map(u => {
           if (u.id === action.userId) {
-            return {...u, isFollow: false}
+            return { ...u, isFollow: false }
           }
           return u;
         })
       })
+
     case UNFOLLOW: return ({
         ...state, users: state.users.map(u => {
           if (u.id === action.userId) {
-            return {...u, isFollow: true}
+            return { ...u, isFollow: true }
           }
           return u;
         })
       })
-    case SET_USERS: return {...state, users: action.users }
-    case SET_CURRENT_PAGE: return {...state, currentPage: action.currentPage }
-    case SET_TOTAL_USERS_COUNT: return {...state, totalUsersCount: action.count }
-    case TOGGLE_IS_FETCHING: return {...state, isFetching: action.isFetching }
+
+    case SET_USERS: return { ...state, users: action.users }
+    case SET_CURRENT_PAGE: return { ...state, currentPage: action.currentPage }
+    case SET_TOTAL_USERS_COUNT: return { ...state, totalUsersCount: action.count }
+    case TOGGLE_IS_FETCHING: return { ...state, isFetching: action.isFetching }
 
     default: return state
   }
