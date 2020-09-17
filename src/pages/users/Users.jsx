@@ -1,26 +1,76 @@
 import React from 'react';
 
-import { NewUserContainer, Preloader } from './index';
+import {Preloader} from './index';
 
-import { Pagination, PaginationWrapper } from './styled';
+import {Pagination, PaginationWrapper} from './styled';
+
+import {NavLink} from 'react-router-dom';
+import userPhoto from '../../assets/images/kuchma.jpg';
+import {usersAPI} from '../../api/api';
 
 import './Users.scss'
 
 
-export const Users = ({ totalUsersCount, pageSize, users, onPageChanged, isFetching }) => {
-  const pagesCount = Math.ceil(totalUsersCount / pageSize)
+export const Users = props => {
+  const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
   const pages = [];
-  for (let i = 1; i <= pagesCount; i++) { pages.push(i) }
-
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i)
+  }
   return (
-    <main className = "users-page">
-      <section className = "users-page__wrapper">
-        { isFetching ? <Preloader /> : null }
-        { users.map(u => <NewUserContainer key = {u.key} {...u} />) }
+    <main className="users-page">
+      <section className="users-page__wrapper">
+        {props.isFetching ? <Preloader/> : null}
+        {props.users.map(u => (
+          <div className="user">
+            <div className="user__header">
+              <div className="user__header__avatar">
+                <NavLink to={'/profile/' + u.id}>
+                  <img className="user__header__avatar__image" src={u.photos.small != null ? u.photos.small : userPhoto}
+                       alt={u.name}/>
+                </NavLink>
+              </div>
+            </div>
+            <div className="user__body">
+              <p className="user__body__name">{u.name}</p>
+            </div>
+            <div className="user__bottom">
+              <div className="user__bottom__status">
+                <span className="user__bottom__status__title">Status: {u.status} </span>
+              </div>
+              {
+                u.followed
+                  ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                    props.toggleFollowingProgress(true, u.id);
+                    usersAPI.unFollowUser(u.id)
+                      .then(data => {
+                        if (data.resultCode === 0) {
+                          props.unFollow(u.id)
+                        }
+                        props.toggleFollowingProgress(false, u.id);
+                      })
+                  }} className="user__bottom__button">Unfollow</button>
+                  : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                    props.toggleFollowingProgress(true);
+                    usersAPI.followUser(u.id)
+                      .then(data => {
+                        props.toggleFollowingProgress(true, u.id);
+                        if (data.resultCode === 0) {
+                          props.follow(u.id)
+                        }
+                        props.toggleFollowingProgress(false, u.id);
+                      })
+                  }} className="user__bottom__button">Follow</button>
+              }
+            </div>
+          </div>
+        ))}
       </section>
       <PaginationWrapper>
-        { pages.map(p => { return <Pagination isRed = { false } onClick = { () => onPageChanged(p) }> {p} </Pagination> }) }
+        {pages.map(p => {
+          return <Pagination key={p.key} isRed={false} onClick={() => props.onPageChanged(p)}> {p} </Pagination>
+        })}
       </PaginationWrapper>
     </main>
   )
