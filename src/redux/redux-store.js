@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux';
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import thunkMiddleware from 'redux-thunk';
 
 import { generalReducer } from './general-reducer';
 import { modalWindowReducer } from './modal-window-reducer';
@@ -17,7 +18,7 @@ const reducers = combineReducers({
     auth: authReducer,
 })
 
-const store = createStore(reducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore( reducers, compose( applyMiddleware(thunkMiddleware),window.devToolsExtension ? window.devToolsExtension() : f => f ) );
 
 window.store = store;
 

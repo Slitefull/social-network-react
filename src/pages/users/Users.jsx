@@ -6,7 +6,6 @@ import {Pagination, PaginationWrapper} from './styled';
 
 import {NavLink} from 'react-router-dom';
 import userPhoto from '../../assets/images/kuchma.jpg';
-import {usersAPI} from '../../api/api';
 
 import './Users.scss'
 
@@ -42,25 +41,10 @@ export const Users = props => {
               {
                 u.followed
                   ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    usersAPI.unFollowUser(u.id)
-                      .then(data => {
-                        if (data.resultCode === 0) {
-                          props.unFollow(u.id)
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      })
+                    props.unFollow(u.id)
                   }} className="user__bottom__button">Unfollow</button>
                   : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                    props.toggleFollowingProgress(true);
-                    usersAPI.followUser(u.id)
-                      .then(data => {
-                        props.toggleFollowingProgress(true, u.id);
-                        if (data.resultCode === 0) {
-                          props.follow(u.id)
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      })
+                    props.follow(u.id)
                   }} className="user__bottom__button">Follow</button>
               }
             </div>
