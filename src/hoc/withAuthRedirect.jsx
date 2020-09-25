@@ -1,14 +1,10 @@
 import React from 'react';
-import {pages} from '../consts';
-import {Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { pages } from '../consts';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
-const mapStateToPropsForRedirect = state => {
-  return {
-    isAuth: state.auth.isAuth
-  }
-}
+const mapStateToPropsForRedirect = state => ({ isAuth: state.auth.isAuth })
 
 export const withAuthRedirect = Component => {
   const RedirectComponent = props => {
@@ -18,5 +14,5 @@ export const withAuthRedirect = Component => {
 
   const ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent);
 
-  return ConnectedAuthRedirectComponent
+  return ConnectedAuthRedirectComponent;
 }
