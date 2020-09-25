@@ -22,7 +22,6 @@ library.add(fab)
 
 
 export const Profile = ({ profile }) => {
-
   if (!profile) { return <Preloader/> }
 
   const { fullName, photos, aboutMe, lookingForAJob, lookingForAJobDescription, contacts } = profile;

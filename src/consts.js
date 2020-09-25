@@ -8,7 +8,8 @@ export const pages = {
   },
   links: {
     generalPage: '/general',
-    profilePage: '/profile/:userId?',
+    profilePageRoute: '/profile/:userId?',
+    profilePageMenu: '/profile',
     dialogsPage: '/dialogs',
     usersPage: '/users',
     authPage: '/login',

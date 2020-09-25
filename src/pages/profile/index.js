@@ -1,24 +1,27 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
-import {setProfile, setUserProfile} from '../../redux/profile-reducer';
+import {setProfileData, setUserProfile} from '../../redux/profile-reducer';
 
-import { Profile } from './Profile';
+import {Profile} from './Profile';
 
 class ProfileWrapper extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
-    this.props.setProfile(userId)
+    this.props.setProfileData(userId)
   }
 
-  render() { return <Profile profile = { this.props.profile }/> }
+  render() {
+    return (<Profile profile={this.props.profile}/>)
+  }
 }
 
-const mapStateToProps = state => ({
-  profile: state.profilePage.profile,
-})
+const mapStateToProps = state => ({profile: state.profilePage.profile })
 
-const WithUrlDataContainerComponent = withRouter(ProfileWrapper);
+let AuthRedirectComponent = withAuthRedirect(ProfileWrapper)
 
-export const ProfileContainer = connect(mapStateToProps, { setUserProfile, setProfile })(WithUrlDataContainerComponent);
+const WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
+
+export const ProfileContainer = connect(mapStateToProps, { setUserProfile, setProfileData })(WithUrlDataContainerComponent);
