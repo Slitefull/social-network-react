@@ -11,7 +11,7 @@ import './Users.scss'
 
 
 export const Users = props => {
-  const {isFetching, users, totalUsersCount, pageSize, followingInProgress, follow, unFollow, onPageChanged} = props;
+  const { isFetching, users, totalUsersCount, pageSize, followingInProgress, follow, unFollow, onPageChanged } = props;
   const pagesCount = Math.ceil(totalUsersCount / pageSize)
 
   const pages = [];

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import avatar from '../../assets/images/avatar.jpg'
 import profileBackground from '../../assets/images/profile-background.jpg'
 
+import { ProfileStatus } from './profile-status/ProfileStatus'
 import { Preloader } from '../../components/preloader/Preloader';
 
 import {
@@ -40,6 +41,8 @@ export const Profile = ({ profile }) => {
             }
           </ProfileCardAvatar>
           <ProfileCardInfo>
+            <ProfileStatus status={'status'}/>
+            <ProfileCardStatus />
             {
               fullName
                 ? <ProfileCardFullName>{ fullName }</ProfileCardFullName>

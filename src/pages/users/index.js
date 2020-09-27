@@ -1,23 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { follow, unFollow, getUsers, setCurrentPage, setTotalUsersCount } from '../../redux/users-reducer';
+import {follow, unFollow, getUsers, setCurrentPage, setTotalUsersCount} from '../../redux/users-reducer';
 
 import {Users} from './Users';
+import {compose} from 'redux';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 
 class UsersWrapper extends React.Component {
-  componentDidMount() { this.props.getUsers(this.props.currentPage, this.props.pageSize) }
+  componentDidMount() {
+    this.props.getUsers(this.props.currentPage, this.props.pageSize)
+  }
 
-  onPageChanged = pageNumber => { this.props.getUsers(pageNumber, this.props.pageSize) }
+  onPageChanged = pageNumber => {
+    this.props.getUsers(pageNumber, this.props.pageSize)
+  }
 
   render() {
-    return <Users users={this.props.users}
-                  onPageChanged={this.onPageChanged}
-                  totalUsersCount={this.props.totalUsersCount}
-                  pageSize={this.props.pageSize}
-                  followingInProgress={this.props.followingInProgress}
-                  follow={this.props.follow}
-                  unFollow={this.props.unFollow} />
+    return <Users {...this.props} onPageChanged={this.onPageChanged}/>
   }
 }
 
@@ -31,5 +31,12 @@ const mapStateToProps = state => {
   }
 }
 
-export const UsersContainer = connect(mapStateToProps, { setCurrentPage, setTotalUsersCount, getUsers, follow, unFollow })(UsersWrapper)
-export { Preloader } from '../../components/preloader/Preloader';
+export const UsersContainer = compose(connect(mapStateToProps, {
+  setCurrentPage,
+  setTotalUsersCount,
+  getUsers,
+  follow,
+  unFollow
+}), withAuthRedirect)(UsersWrapper)
+
+export {Preloader} from '../../components/preloader/Preloader';
