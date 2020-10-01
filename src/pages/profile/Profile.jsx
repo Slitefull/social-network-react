@@ -22,7 +22,7 @@ import {
 library.add(fab)
 
 
-export const Profile = ({ profile }) => {
+export const Profile = ({ profile, status }) => {
   if (!profile) { return <Preloader/> }
 
   const { fullName, photos, aboutMe, lookingForAJob, lookingForAJobDescription, contacts } = profile;
@@ -41,7 +41,7 @@ export const Profile = ({ profile }) => {
             }
           </ProfileCardAvatar>
           <ProfileCardInfo>
-            <ProfileStatus status={'status'}/>
+            <ProfileStatus status={status}/>
             <ProfileCardStatus />
             {
               fullName

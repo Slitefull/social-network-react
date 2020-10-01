@@ -12,10 +12,12 @@ export const usersAPI = {
   unFollowUser: id => instance.delete(`follow/${id}`)
 }
 
-export const authAPI = {
-  me: () => instance.get(`auth/me`)
+export const profileAPI = {
+  getProfileData: userId => instance.get(`profile/${userId}`),
+  getStatus: userId => instance.get(`profile/status/${userId}`),
+  updateStatus: status => instance.put(`profile/status`, { status: status })
 }
 
-export const profileAPI = {
-  getProfileData: userId => instance.get(`profile/${userId}`)
+export const authAPI = {
+  me: () => instance.get(`auth/me`)
 }

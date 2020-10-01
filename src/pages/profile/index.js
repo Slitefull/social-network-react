@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
-import { setProfileData, setUserProfile } from '../../redux/profile-reducer';
+import {getProfileData, getStatus, setUserProfile} from '../../redux/profile-reducer';
 
 import { Profile } from './Profile';
 import { compose } from 'redux';
@@ -11,17 +11,22 @@ import { compose } from 'redux';
 class ProfileWrapper extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
-    this.props.setProfileData(userId)
+    this.props.getProfileData(userId);
+    this.props.getStatus(userId)
   }
 
   render() {
-    return (<Profile profile={this.props.profile} />)
+    return (<Profile profile = { this.props.profile } status = { this.props.status } />)
   }
 }
 
-const mapStateToProps = state => ({profile: state.profilePage.profile})
+const mapStateToProps = state => ({
+  profile: state.profilePage.profile,
+  status: state.profilePage.status
+})
 
 export const ProfileContainer = compose(connect(mapStateToProps, {
   setUserProfile,
-  setProfileData
+  getProfileData,
+  getStatus,
 }), withRouter, withAuthRedirect)(ProfileWrapper)
