@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import avatar from '../../assets/images/avatar.jpg'
 import profileBackground from '../../assets/images/profile-background.jpg'
 
-import { ProfileStatus } from './profile-status/ProfileStatus'
+import {ProfileStatusContainer} from './profile-status/ProfileStatus'
 import { Preloader } from '../../components/preloader/Preloader';
 
 import {
@@ -18,11 +18,12 @@ import {
   ProfileCardStatus,
   ProfilePage, ProfilePageBackgroundContainer
 } from './styled';
+import {updateStatus} from '../../redux/profile-reducer';
 
 library.add(fab)
 
 
-export const Profile = ({ profile, status }) => {
+export const Profile = ({ profile, status, updateProfile }) => {
   if (!profile) { return <Preloader/> }
 
   const { fullName, photos, aboutMe, lookingForAJob, lookingForAJobDescription, contacts } = profile;
@@ -41,7 +42,7 @@ export const Profile = ({ profile, status }) => {
             }
           </ProfileCardAvatar>
           <ProfileCardInfo>
-            <ProfileStatus status={status}/>
+            <ProfileStatusContainer status = { status } updateStatus = { updateStatus } />
             <ProfileCardStatus />
             {
               fullName

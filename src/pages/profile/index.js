@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
-import {getProfileData, getStatus, setUserProfile} from '../../redux/profile-reducer';
+import { getProfileData, getStatus, setUserProfile, updateStatus} from '../../redux/profile-reducer';
 
 import { Profile } from './Profile';
 import { compose } from 'redux';
@@ -16,7 +16,7 @@ class ProfileWrapper extends React.Component {
   }
 
   render() {
-    return (<Profile profile = { this.props.profile } status = { this.props.status } />)
+    return (<Profile profile = { this.props.profile } status = { this.props.status } updateStatus = { this.props.updateStatus } />)
   }
 }
 
@@ -29,4 +29,5 @@ export const ProfileContainer = compose(connect(mapStateToProps, {
   setUserProfile,
   getProfileData,
   getStatus,
+  updateStatus
 }), withRouter, withAuthRedirect)(ProfileWrapper)
