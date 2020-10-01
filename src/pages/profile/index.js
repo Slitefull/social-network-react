@@ -15,7 +15,7 @@ class ProfileWrapper extends React.Component {
   }
 
   render() {
-    return (<Profile profile={this.props.profile}/>)
+    return (<Profile profile={this.props.profile} />)
   }
 }
 

@@ -6,7 +6,7 @@ import { pages } from '../consts';
 import { ModalContainer, ProfileContainer, UsersContainer, Header, Footer, General } from './index';
 import {DialogsContainer} from '../pages/dialogs';
 
-import {Login} from '../pages/login/Login';
+import { Login } from '../pages/login/Login';
 
 import './App.scss';
 
