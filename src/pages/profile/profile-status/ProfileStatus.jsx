@@ -54,4 +54,8 @@ export class ProfileStatus extends React.Component {
   }
 }
 
-export const ProfileStatusContainer = connect(null, {updateStatus})(ProfileStatus)
+const mapStateToProps = state => ({
+  status: state.profilePage.status
+})
+
+export const ProfileStatusContainer = connect(mapStateToProps, {updateStatus})(ProfileStatus)
