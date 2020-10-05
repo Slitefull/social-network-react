@@ -18,13 +18,17 @@ import {
   ProfileCardStatus,
   ProfilePage, ProfilePageBackgroundContainer
 } from './styled';
-import {updateStatus} from '../../redux/profile-reducer';
+import {Field, reduxForm} from 'redux-form';
 
 library.add(fab)
 
 
-export const Profile = ({ profile, status, updateProfile }) => {
+export const Profile = ({ profile, status, updateStatus }) => {
   if (!profile) { return <Preloader/> }
+
+  const onSubmit = dataForm => {
+    console.log(dataForm)
+  }
 
   const { fullName, photos, aboutMe, lookingForAJob, lookingForAJobDescription, contacts } = profile;
   const { github, facebook, vk, twitter, instagram, youtube } = contacts;
@@ -93,7 +97,23 @@ export const Profile = ({ profile, status, updateProfile }) => {
               : null
           }
         </ProfileCardSocial>
+        <PostReduxForm onSubmit={onSubmit} />
       </ProfileCard>
     </ProfilePage>
   )
 }
+
+const PostForm = ({handleSubmit}) => {
+  return (
+    <form onSubmit={handleSubmit}>
+      <Field name={'post'} component={'textarea'} placeholder={'post'} />
+      <div>
+        <button>Add New Post</button>
+      </div>
+    </form>
+  )
+}
+
+const PostReduxForm = reduxForm({
+  form: 'profile-post'
+})(PostForm)

@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import { generalReducer } from './general-reducer';
@@ -7,7 +7,7 @@ import { usersReducer } from './users-reducer';
 import { dialogsReducer } from './dialogs-reducer';
 import { profileReducer } from './profile-reducer';
 import { authReducer } from './auth-reducer';
-
+import { reducer as formReducer } from 'redux-form';
 
 const reducers = combineReducers({
     generalPage: generalReducer,
@@ -16,6 +16,7 @@ const reducers = combineReducers({
     usersPage: usersReducer,
     modalWindow: modalWindowReducer,
     auth: authReducer,
+    form: formReducer,
 })
 
 const store = createStore( reducers, compose( applyMiddleware(thunkMiddleware),window.devToolsExtension ? window.devToolsExtension() : f => f ) );
