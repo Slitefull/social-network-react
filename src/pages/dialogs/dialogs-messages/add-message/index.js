@@ -1,9 +1,17 @@
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
-import { AddMessage } from './AddMessage';
-import { addPost, onPostMessageChangeHandler } from '../../../../redux/dialogs-reducer';
+import {AddMessage} from './AddMessage';
+import {addPostAC} from '../../../../redux/dialogs-reducer';
 
 
-const mapStateToProps = state => ({ newMessageText: state.dialogsPage.newMessageText })
+const mapStateToProps = state => ({newMessageText: state.dialogsPage.newMessageText})
 
-export const AddMessageContainer = connect(mapStateToProps, { addPost, onPostMessageChangeHandler })(AddMessage)
+const mapDispatchToProps = dispatch => {
+  return {
+    addPost: message => {
+      dispatch(addPostAC(message))
+    }
+  }
+}
+
+export const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AddMessage)

@@ -13,6 +13,7 @@ import { ProfileStatusContainer } from "../profile-status/ProfileStatus";
 
 export const ProfileCardBodyWrapper = ({profile}) => {
   const {photos, fullName, aboutMe, lookingForAJob, lookingForAJobDescription} = profile;
+
   return (
     <ProfileCardBody>
       <ProfileCardAvatar>

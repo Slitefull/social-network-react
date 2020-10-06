@@ -2,35 +2,25 @@ import React from "react";
 import {Field, reduxForm} from 'redux-form';
 
 
-export const AddMessage = ({addPost, onPostMessageChangeHandler, newMessageText}) => {
-  const dialogsMessage = React.createRef()
-
-  const onSubmit = dataForm => {
-    console.log(dataForm)
-  }
-
-  const onPostChange = () => {
-    const postMessage = dialogsMessage.current.value;
-    onPostMessageChangeHandler(postMessage)
+export const AddMessage = ({addPost}) => {
+  const addNewMessage = values => {
+    addPost(values.message)
   }
 
   return (
     <div className="new-message">
       <p className="new-message__message">Add message</p>
-      <NewMessageReduxForm onSubmit = { onSubmit } onPostChange = { onPostChange } dialogsMessage = { dialogsMessage }
-                           newMessageText={newMessageText}
-                           addPost={addPost} />
+      <NewMessageReduxForm onSubmit={addNewMessage} addPost={addPost}/>
     </div>
   )
 }
 
-const NewMessageForm = ({onPostChange, dialogsMessage, newMessageText, addPost, handleSubmit}) => {
+const NewMessageForm = ({handleSubmit}) => {
   return (
-    <form onSubmit = { handleSubmit }>
-      <Field name = {'message'} component = {'input'} placeholder = {'message'} className = "new-message__input"
-             onChange={onPostChange} ref={dialogsMessage} value = {newMessageText} />
+    <form onSubmit={handleSubmit}>
+      <Field name={'message'} component={'input'} placeholder={'message'} className="new-message__input"/>
       <div>
-        <button className="new-message__button" onClick = { addPost }>Send</button>
+        <button className="new-message__button">Send</button>
       </div>
     </form>
   )
