@@ -1,19 +1,8 @@
 import {connect} from "react-redux";
 
-import {addUserAC} from '../../../../redux/dialogs-reducer';
+import {addUser} from '../../../../redux/dialogs-reducer';
 import {AddUser} from './AddUser';
 
+const mapDispatchToProps = dispatch => { return { addUser: user => dispatch(addUser(user)) } }
 
-const mapStateToProps = state => ({
-  newUserName: state.dialogsPage.newUserName
-})
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addUser: user => {
-      dispatch(addUserAC(user))
-    }
-  }
-}
-
-export const AddUserContainer = connect(mapStateToProps, mapDispatchToProps)(AddUser)
+export const AddUserContainer = connect(null, mapDispatchToProps)(AddUser)

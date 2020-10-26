@@ -17,3 +17,7 @@ export const ProfileCard = styled.div`
   width: 100%;
   transform: translate(10px, -240px);
 `
+
+export const ProfileCardSocial = styled.div`
+  margin: 3px 0 0 0;
+`

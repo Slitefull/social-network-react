@@ -1,17 +1,15 @@
 import {connect} from "react-redux";
 
 import {AddMessage} from './AddMessage';
-import {addPostAC} from '../../../../redux/dialogs-reducer';
+import {addPost} from '../../../../redux/dialogs-reducer';
 
-
-const mapStateToProps = state => ({newMessageText: state.dialogsPage.newMessageText})
 
 const mapDispatchToProps = dispatch => {
-  return {
-    addPost: message => {
-      dispatch(addPostAC(message))
+    return {
+        sendMessage: message => {
+            dispatch(addPost(message))
+        }
     }
-  }
 }
 
-export const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AddMessage)
+export const AddMessageContainer = connect(null, mapDispatchToProps)(AddMessage)

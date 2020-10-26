@@ -29,6 +29,7 @@ export const ProfileCardInfo = styled.div`
   font-weight: 500;
 `
 
+
 export const ProfileCardStatus = styled.div`
 
 `
