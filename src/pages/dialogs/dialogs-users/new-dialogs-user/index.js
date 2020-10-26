@@ -1,9 +1,8 @@
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
-import { addUser, onUserNameChangeHandler } from '../../../../redux/dialogs-reducer';
-import { AddUser } from './AddUser';
+import {addUser} from '../../../../redux/dialogs-reducer';
+import {AddUser} from './AddUser';
 
+const mapDispatchToProps = dispatch => { return { addUser: user => dispatch(addUser(user)) } }
 
-const mapStateToProps = state => ({ newUserName: state.dialogsPage.newUserName })
-
-export const AddUserContainer = connect(mapStateToProps, { addUser, onUserNameChangeHandler })(AddUser)
+export const AddUserContainer = connect(null, mapDispatchToProps)(AddUser)
