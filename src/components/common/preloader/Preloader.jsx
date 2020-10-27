@@ -1,5 +1,5 @@
 import React from 'react';
-import PreloaderImg from '../../assets/images/preloader.svg';
+import PreloaderImg from '../../../assets/images/preloader.svg';
 import { PreloaderStyled, PreloaderWrapper } from './styled';
 
 

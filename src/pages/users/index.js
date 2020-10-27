@@ -39,4 +39,4 @@ export const UsersContainer = compose(connect(mapStateToProps, {
   unFollow
 }), withAuthRedirect)(UsersWrapper)
 
-export {Preloader} from '../../components/preloader/Preloader';
+export {Preloader} from '../../components/common/preloader/Preloader';

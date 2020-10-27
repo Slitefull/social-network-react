@@ -2,43 +2,53 @@ import React from "react";
 import {Field, reduxForm} from 'redux-form';
 
 import profileBackground from '../../assets/images/profile-background.jpg'
-import {Preloader} from '../../components/preloader/Preloader';
-import {ProfileCardBodyComponent} from "./profile-card-body/ProfileCardBodyComponent";
-import {ProfileCardSocialComponent} from "./profile-card-social/ProfileCardSocialComponent";
+import {Preloader} from '../../components/common/preloader/Preloader';
 
 import {ProfileCard, ProfilePage, ProfilePageBackgroundContainer} from './styled';
+import {ProfileCardSocialContainer} from "./profile-card-social";
+import {ProfileCardBodyContainer} from "./profile-card-body";
+import {PostsContainer} from "./posts";
+import {maxLengthCreator, required} from "../../helpers/validators/validators";
+import {Textarea} from "../../components/common/form-controls/form-controls";
 
 
-export const Profile = ({profile, status, updateStatus}) => {
-    if (!profile) { return <Preloader/> }
+const maxLength30 = maxLengthCreator(30);
 
-    const onSubmit = dataForm => {
-        console.log(dataForm)
-    }
+export const Profile = ({profile, addPost}) => {
+  if (!profile) {
+    return <Preloader/>
+  }
 
-    const {contacts} = profile;
+  const addNewPost = values => {
+    addPost(values.post)
+  }
 
-    return (
-        <ProfilePage>
-            <ProfilePageBackgroundContainer style={{backgroundImage: `url(${profileBackground})`}}/>
-            <ProfileCard>
-                <ProfileCardBodyComponent profile={profile} status={status} updateStatus={updateStatus}/>
-                <ProfileCardSocialComponent contacts={contacts}/>
-                <PostReduxForm onSubmit={onSubmit}/>
-            </ProfileCard>
-        </ProfilePage>
-    )
+  return (
+    <ProfilePage>
+      <ProfilePageBackgroundContainer style={{backgroundImage: `url(${profileBackground})`}}/>
+      <ProfileCard>
+        <ProfileCardBodyContainer/>
+        <ProfileCardSocialContainer/>
+        <PostReduxForm onSubmit={addNewPost}/>
+        <PostsContainer/>
+      </ProfileCard>
+    </ProfilePage>
+  )
 }
 
 const PostForm = ({handleSubmit}) => {
-    return (
-        <form onSubmit={handleSubmit}>
-            <Field name={'post'} component={'textarea'} placeholder={'post'}/>
-            <div>
-                <button>Add New Post</button>
-            </div>
-        </form>
-    )
+  return (
+    <form onSubmit={handleSubmit}>
+      <Field
+        name={'post'}
+        component={Textarea}
+        placeholder={'Post Message'}
+        validate={[required, maxLength30]}/>
+      <div>
+        <button>Add New Post</button>
+      </div>
+    </form>
+  )
 }
 
-const PostReduxForm = reduxForm({ form: 'profile-post' })(PostForm)
+const PostReduxForm = reduxForm({form: 'profile-post'})(PostForm)

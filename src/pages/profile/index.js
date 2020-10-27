@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
-import { getProfileData, getStatus, setUserProfile, updateStatus} from '../../redux/profile-reducer';
+import {addPost, getProfileData, getStatus, setUserProfile, updateStatus} from '../../redux/profile-reducer';
 
-import { Profile } from './Profile';
-import { compose } from 'redux';
+import {Profile} from './Profile';
+import {compose} from 'redux';
 
 class ProfileWrapper extends React.Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ class ProfileWrapper extends React.Component {
   }
 
   render() {
-    return (<Profile profile = { this.props.profile } status = { this.props.status } updateStatus = { this.props.updateStatus } />)
+    return (<Profile profile={this.props.profile} addPost={this.props.addPost}/>)
   }
 }
 
@@ -25,9 +25,24 @@ const mapStateToProps = state => ({
   status: state.profilePage.status
 })
 
-export const ProfileContainer = compose(connect(mapStateToProps, {
-  setUserProfile,
-  getProfileData,
-  getStatus,
-  updateStatus
-}), withRouter, withAuthRedirect)(ProfileWrapper)
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserProfile: () => {
+      dispatch(setUserProfile())
+    },
+    getProfileData: () => {
+      dispatch(getProfileData())
+    },
+    getStatus: () => {
+      dispatch(getStatus())
+    },
+    updateStatus: () => {
+      dispatch(updateStatus())
+    },
+    addPost: content => {
+      dispatch(addPost(content))
+    }
+  }
+}
+
+export const ProfileContainer = compose(connect(mapStateToProps, mapDispatchToProps), withRouter, withAuthRedirect)(ProfileWrapper)

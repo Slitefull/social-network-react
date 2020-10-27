@@ -1,6 +1,9 @@
 import React from "react";
 import {Field, reduxForm} from 'redux-form';
+import {Input} from "../../../../components/common/form-controls/form-controls";
+import {maxLengthCreator, required} from "../../../../helpers/validators/validators";
 
+const maxLength10 = maxLengthCreator(10);
 
 export const AddUser = ({addUser}) => {
     const addNewUser = values => {
@@ -17,7 +20,13 @@ export const AddUser = ({addUser}) => {
 
 const NewUserForm = ({handleSubmit}) => (
     <form onSubmit={handleSubmit}>
-        <Field name={'user'} component={'input'} placeholder={'user'} className="new-user__input"/>
+        <Field
+          name={'user'}
+          component={Input}
+          placeholder={'user'}
+          className="new-user__input"
+          validate={[required, maxLength10]}
+        />
         <div>
             <button className="new-user__button">Add</button>
         </div>
