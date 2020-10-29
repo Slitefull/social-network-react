@@ -12,7 +12,7 @@ class ProfileWrapper extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
     this.props.getProfileData(userId);
-    this.props.getStatus(userId)
+    this.props.getStatus(userId);
   }
 
   render() {
@@ -27,9 +27,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUserProfile: () => {
-      dispatch(setUserProfile())
-    },
     getProfileData: () => {
       dispatch(getProfileData())
     },

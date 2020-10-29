@@ -5,7 +5,6 @@ import profileBackground from '../../assets/images/profile-background.jpg'
 import {Preloader} from '../../components/common/preloader/Preloader';
 
 import {ProfileCard, ProfilePage, ProfilePageBackgroundContainer} from './styled';
-import {ProfileCardSocialContainer} from "./profile-card-social";
 import {ProfileCardBodyContainer} from "./profile-card-body";
 import {PostsContainer} from "./posts";
 import {maxLengthCreator, required} from "../../helpers/validators/validators";
@@ -28,7 +27,6 @@ export const Profile = ({profile, addPost}) => {
       <ProfilePageBackgroundContainer style={{backgroundImage: `url(${profileBackground})`}}/>
       <ProfileCard>
         <ProfileCardBodyContainer/>
-        <ProfileCardSocialContainer/>
         <PostReduxForm onSubmit={addNewPost}/>
         <PostsContainer/>
       </ProfileCard>

@@ -1,14 +1,13 @@
 import React from 'react';
 import './form-controls.scss'
 
-
-export const Textarea = ({input, meta, ...props}) => {
+const FieldCreator = ({input, child, meta, ...props}) => {
   const hasError = meta.touched && meta.error
 
   return (
     <div className={"form-control" + (hasError ? " error" : "")}>
       <div>
-        <textarea {...input} {...props}/>
+        {props.children}
       </div>
       <div>
         {hasError && <span>{meta.error}</span>}
@@ -17,19 +16,12 @@ export const Textarea = ({input, meta, ...props}) => {
   )
 }
 
-export const Input = ({input, meta, ...props}) => {
-  const hasError = meta.touched && meta.error
+export const Textarea = props => {
+  const {input, meta, child, ...restProps} = props;
+  return <FieldCreator {...props}><textarea {...input} {...restProps}/></FieldCreator>
+}
 
-  return (
-    <div>
-      <div className={"form-control" + (hasError ? " error" : "")}>
-        <div>
-          <input {...input} {...props}/>
-        </div>
-        <div>
-          {hasError && <span>{meta.error}</span>}
-        </div>
-      </div>
-    </div>
-  )
+export const Input = props => {
+  const {input, meta, child, ...restProps} = props;
+  return <FieldCreator {...props}><input {...input} {...restProps}/></FieldCreator>
 }

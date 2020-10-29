@@ -1,18 +1,16 @@
 import React from 'react';
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
-import { modalToggle } from '../../../redux/modal-window-reducer';
-import { setAccountTC, setAuthUserData} from '../../../redux/auth-reducer';
+import {modalToggle} from '../../../redux/modal-window-reducer';
+import {setAuthUserData, logout} from '../../../redux/auth-reducer';
 
-import { Menu } from './Menu';
+import {Menu} from './Menu';
 
 
-class MenuWrapper extends React.Component {
-  componentDidMount() { this.props.setAccountTC() }
-
-  render() { return <Menu { ...this.props } showModal = { this.props.modalToggle } /> }
+function MenuWrapper(props) {
+  return <Menu {...props} showModal={props.modalToggle}/>
 }
 
-const mapStateToProps = state => ({ isAuth: state.auth.isAuth, email: state.auth.email })
+const mapStateToProps = state => ({isAuth: state.auth.isAuth, email: state.auth.email})
 
-export const MenuContainer = connect(mapStateToProps, { modalToggle, setAuthUserData, setAccountTC })(MenuWrapper)
+export const MenuContainer = connect(mapStateToProps, {modalToggle, setAuthUserData, logout})(MenuWrapper)

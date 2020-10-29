@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
-
+import {compose} from "redux";
 import { App } from './App';
+import {initializeApp} from "../redux/app-reducer";
+import {withRouter} from 'react-router-dom';
 
+const mapStateToProps = state => ({
+  isModal: state.modalWindow.isModal,
+  initialized: state.app.initialized
+})
 
-const mapStateToProps = state => ({ isModal: state.modalWindow.isModal })
-
-export const AppContainer = connect(mapStateToProps)(App)
+export const AppContainer = compose(connect(mapStateToProps, {initializeApp}), withRouter)(App)
 
 export { Header } from '../components/header/Header';
 export { Modal } from '../components/modal/Modal';
