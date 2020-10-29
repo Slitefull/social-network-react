@@ -1,10 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {follow, unFollow, getUsers, setCurrentPage, setTotalUsersCount} from '../../redux/users-reducer';
+import {follow, unFollow, requestUsers, setCurrentPage, setTotalUsersCount} from '../../redux/users-reducer';
 
 import {Users} from './Users';
 import {compose} from 'redux';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getPageSize,
+  getTotalUsersCount,
+  getUsers
+} from "../../redux/users-selectors";
 
 
 class UsersWrapper extends React.Component {
@@ -21,20 +28,18 @@ class UsersWrapper extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    followingInProgress: state.usersPage.followingInProgress
-  }
-}
+const mapStateToProps = state => ({
+  users: getUsers(state),
+  pageSize: getPageSize(state),
+  totalUsersCount: getTotalUsersCount(state),
+  currentPage: getCurrentPage(state),
+  followingInProgress: getFollowingInProgress(state)
+})
 
 export const UsersContainer = compose(connect(mapStateToProps, {
   setCurrentPage,
   setTotalUsersCount,
-  getUsers,
+  getUsers: requestUsers,
   follow,
   unFollow
 }), withAuthRedirect)(UsersWrapper)

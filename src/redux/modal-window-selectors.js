@@ -1,0 +1,1 @@
+export const getIsModal = state => state.modalWindow.isModal

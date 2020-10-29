@@ -3,26 +3,31 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
-import {addPost, getProfileData, getStatus, setUserProfile, updateStatus} from '../../redux/profile-reducer';
+import {addPost, getProfileData, requestStatus, updateStatus} from '../../redux/profile-reducer';
 
 import {Profile} from './Profile';
 import {compose} from 'redux';
+import {getProfile, getStatus} from "../../redux/profile-selectors";
 
 class ProfileWrapper extends React.Component {
   componentDidMount() {
+    const {getProfileData, getStatus} = this.props;
+
     let userId = this.props.match.params.userId;
-    this.props.getProfileData(userId);
-    this.props.getStatus(userId);
+    getProfileData(userId);
+    getStatus(userId);
   }
 
   render() {
-    return (<Profile profile={this.props.profile} addPost={this.props.addPost}/>)
+    const {profile, addPost} = this.props;
+
+    return (<Profile profile={profile} addPost={addPost}/>)
   }
 }
 
 const mapStateToProps = state => ({
-  profile: state.profilePage.profile,
-  status: state.profilePage.status
+  profile: getProfile(state),
+  status: getStatus(state)
 })
 
 const mapDispatchToProps = dispatch => {
@@ -31,7 +36,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(getProfileData())
     },
     getStatus: () => {
-      dispatch(getStatus())
+      dispatch(requestStatus())
     },
     updateStatus: () => {
       dispatch(updateStatus())
