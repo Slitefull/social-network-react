@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {follow, unFollow, requestUsers, setCurrentPage, setTotalUsersCount} from '../../redux/users-reducer';
+import {follow, unFollow, requestUsers, setCurrentPage, setTotalUsersCount} from './users-reducer';
 
 import {Users} from './Users';
 import {compose} from 'redux';
@@ -11,7 +11,7 @@ import {
   getPageSize,
   getTotalUsersCount,
   getUsers
-} from "../../redux/users-selectors";
+} from "./users-selectors";
 
 
 class UsersWrapper extends React.Component {

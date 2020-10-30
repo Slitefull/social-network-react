@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
-import {addPost, getProfileData, requestStatus, updateStatus} from '../../redux/profile-reducer';
+import {addPost, getProfileData, requestStatus, updateStatus} from './profile-reducer';
 
 import {Profile} from './Profile';
 import {compose} from 'redux';
-import {getProfile, getStatus} from "../../redux/profile-selectors";
+import {getProfile, getStatus} from "./profile-selectors";
 
 class ProfileWrapper extends React.Component {
   componentDidMount() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateStatus} from '../../../redux/profile-reducer';
+import {updateStatus} from '../profile-reducer';
 
 export class ProfileStatus extends React.Component {
   state = {

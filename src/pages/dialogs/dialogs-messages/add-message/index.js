@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 
 import {AddMessage} from './AddMessage';
-import {addPost} from '../../../../redux/dialogs-reducer';
+import {addPost} from '../../dialogs-reducer';
 
 
 const mapDispatchToProps = dispatch => {

@@ -1,4 +1,4 @@
-import {getAuthUserData} from "./auth-reducer";
+import {getAuthUserData} from "../pages/login/auth-reducer";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 

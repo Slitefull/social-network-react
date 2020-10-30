@@ -1,14 +1,14 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import {generalReducer} from './general-reducer';
-import {modalWindowReducer} from './modal-window-reducer';
-import {usersReducer} from './users-reducer';
-import {dialogsReducer} from './dialogs-reducer';
-import {profileReducer} from './profile-reducer';
-import {authReducer} from './auth-reducer';
+import {generalReducer} from './pages/general/general-reducer';
+import {modalWindowReducer} from './components/modal/modal-window-reducer';
+import {usersReducer} from './pages/users/users-reducer';
+import {dialogsReducer} from './pages/dialogs/dialogs-reducer';
+import {profileReducer} from './pages/profile/profile-reducer';
+import {authReducer} from './pages/login/auth-reducer';
 import {reducer as formReducer} from 'redux-form';
-import {appReducer} from "./app-reducer";
+import {appReducer} from "./app/app-reducer";
 
 const reducers = combineReducers({
   app: appReducer,

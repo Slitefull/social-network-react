@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {ProfileCardBodyComponent} from "./ProfileCardBodyComponent";
-import {updateStatus} from "../../../redux/profile-reducer";
+import {updateStatus} from "../profile-reducer";
 
 const mapStateToProps = state => ({profile: state.profilePage.profile, status: state.profilePage.status})
 

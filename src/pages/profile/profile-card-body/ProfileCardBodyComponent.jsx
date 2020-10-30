@@ -8,7 +8,7 @@ import {
   ProfileCardStatus
 } from "./styled";
 import avatar from "../../../assets/images/avatar.jpg";
-import {ProfileStatusContainer} from "../profile-status/ProfileStatus";
+import {ProfileStatusWithHooks} from "../profile-status/ProfileStatusWithHooks";
 
 export const ProfileCardBodyComponent = ({profile, status, updateStatus}) => {
   const {photos, fullName, aboutMe, lookingForAJob, lookingForAJobDescription} = profile;
@@ -23,7 +23,7 @@ export const ProfileCardBodyComponent = ({profile, status, updateStatus}) => {
         }
       </ProfileCardAvatar>
       <ProfileCardInfo>
-        <ProfileStatusContainer status={status} updateStatus={updateStatus}/>
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
         <ProfileCardStatus/>
         {
           fullName
